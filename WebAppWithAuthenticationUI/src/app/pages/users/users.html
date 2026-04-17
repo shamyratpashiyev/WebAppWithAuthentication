@@ -39,20 +39,22 @@
       </tr>
       </thead>
       <tbody id="userTableBody">
-      <tr>
-          <td>
-              <input class="form-check-input user-checkbox" type="checkbox" value="101">
-          </td>
-          <td>
-              <div>@item.Name @item.Surname</div>
-              <div class="text-muted small">@item.Position</div>
-          </td>
-          <td>
-              @item.Email
-          </td>
-          <td>@item.Status</td>
-          <td title="" data-bs-toggle="tooltip" class="timeago" datetime=""></td>
-      </tr>
+        @for (user of userList; track user.id) {
+          <tr>
+              <td>
+                  <input class="form-check-input user-checkbox" type="checkbox" value="101">
+              </td>
+              <td>
+                  <div>{{ user.name }} {{ user.surname }}</div>
+                  <div class="text-muted small">{{ user.position }}</div>
+              </td>
+              <td>
+                  {{ user.email }}
+              </td>
+              <td>{{ user.status }}</td>
+              <td title="" data-bs-toggle="tooltip" class="timeago" datetime=""></td>
+          </tr>
+        }
 
       </tbody>
     </table>
