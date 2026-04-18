@@ -1,8 +1,8 @@
-import {inject, Injectable} from '@angular/core';
+import {inject, Injectable, Signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {API_BASE_URL} from '../app.config';
 import {Observable} from 'rxjs';
-import {UserDto} from '../models/user-dto';
+import {UserDto} from '../models/models';
 
 @Injectable({
   providedIn: 'root',
@@ -15,5 +15,9 @@ export class UserService {
 
   getAll = (): Observable<UserDto[]> => {
     return this.httpClient.request<UserDto[]>('GET', `${this.serviceBaseUrl}/GetAll`)
+  }
+
+  getFiltered = (filter?: string): Observable<UserDto[]> => {
+    return this.httpClient.request<UserDto[]>('GET', `${this.serviceBaseUrl}/GetFiltered${(filter ? '?filter=' + filter : '')}`)
   }
 }

@@ -1,8 +1,15 @@
-import {ApplicationConfig, InjectionToken, provideBrowserGlobalErrorListeners} from '@angular/core';
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  InjectionToken,
+  provideBrowserGlobalErrorListeners
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { environment } from '../environments/environment';
+import {TimeagoModule} from 'ngx-timeago';
+import {provideSweetAlert2, SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
 
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL', {
   providedIn: 'root',
@@ -12,6 +19,11 @@ export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL', {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes)
+    provideRouter(routes),
+    importProvidersFrom(TimeagoModule.forRoot()),
+    provideSweetAlert2({
+      fireOnInit: false,
+      dismissOnDestroy: true,
+    }),
   ]
 };

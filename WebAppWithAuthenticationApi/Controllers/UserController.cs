@@ -22,7 +22,7 @@ public class UserController : ControllerBase
     public async Task<List<UserDto>> GetAll()
     {
         return await _userManager.Users
-            .Select(x => new UserDto(x.Name, x.Surname, x.Email, x.Position, x.LastLoginDate, x.Status))
+            .Select(x => new UserDto(x.Id, x.Name, x.Surname, x.Email, x.Position, x.LastLoginDate, x.Status))
             .ToListAsync();
     }
 
@@ -36,7 +36,7 @@ public class UserController : ControllerBase
         }
         
         return await usersQueryable
-            .Select(x => new UserDto(x.Name, x.Surname, x.Email, x.Position, x.LastLoginDate, x.Status))
+            .Select(x => new UserDto(x.Id, x.Name, x.Surname, x.Email, x.Position, x.LastLoginDate, x.Status))
             .ToListAsync();
     }
 }

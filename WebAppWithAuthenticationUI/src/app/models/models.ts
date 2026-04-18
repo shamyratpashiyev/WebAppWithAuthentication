@@ -1,7 +1,10 @@
-import {UserStatus} from '../enums/user-status';
+import {UserStatus} from '../enums/models';
 
-export interface UserDto {
+interface BaseDto {
   id: number;
+}
+
+export interface UserDto extends BaseDto {
   name: string;
   surname: string;
   email: string;

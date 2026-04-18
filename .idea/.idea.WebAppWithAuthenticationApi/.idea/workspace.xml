@@ -40,6 +40,9 @@
     &quot;accountId&quot;: &quot;e55b5101-1a08-4b59-9eed-ee0b5f82e7f9&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/602e02d2450f4d57a2dbd6ba8c6a0d6812b08/36/cb9cb9cf/ConfigurationBinder.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4,
   &quot;fromUser&quot;: false
@@ -139,7 +142,8 @@
       <workItem from="1776346464308" duration="1862000" />
       <workItem from="1776394633410" duration="43000" />
       <workItem from="1776394744472" duration="700000" />
-      <workItem from="1776395479728" duration="2738000" />
+      <workItem from="1776395479728" duration="2794000" />
+      <workItem from="1776504696541" duration="10220000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -149,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776348142489</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Constructing and connecting the UI to the backend">
+      <option name="closed" value="true" />
+      <created>1776398816162</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1776398816162</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +174,7 @@
     </ignored-roots>
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Initial commit" />
+    <MESSAGE value="Constructing and connecting the UI to the backend" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">

@@ -1,33 +1,56 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, signal, Signal} from '@angular/core';
 import {UserService} from '../../services/user-service';
-import {UserDto} from '../../models/user-dto';
-import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {Subscription} from 'rxjs';
+import {UserDto} from '../../models/models';
+import {switchMap} from 'rxjs';
+import {DatePipe} from '@angular/common';
+import {TimeagoModule} from 'ngx-timeago';
+import {ConfirmationWindow} from '../../components/confirmation-window/confirmation-window';
+import {SwalDirective} from '@sweetalert2/ngx-sweetalert2';
+import {toObservable, toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-users',
-  imports: [],
+  imports: [
+    DatePipe,
+    TimeagoModule,
+    ConfirmationWindow,
+    SwalDirective
+  ],
   templateUrl: './users.html',
   styleUrl: './users.scss',
 })
-export class Users implements OnInit, OnDestroy {
-    constructor(private userService: UserService) {}
+export class Users implements OnInit {
+  filter = signal<string>('');
+  userListSignal = toSignal<UserDto[]>(
+    toObservable(this.filter)
+      .pipe(
+        switchMap(filter => this.userService.getFiltered(filter))
+      )
+  );
 
-    userList: UserDto[] = [];
-    private subscriptionList: Subscription[] = [];
+  constructor(public userService: UserService) {
+  }
 
-    ngOnInit(): void {
-      this.subscriptionList[0] = this.userService.getAll()
-          .subscribe(res => {
-            this.userList = res;
-          })
-    }
+  onSearch(e: any): void {
+    this.filter.set(e.target.value);
+  }
 
+  ngOnInit(): void {
+  }
 
-    ngOnDestroy(): void {
-      for (const sub of this.subscriptionList) {
-        sub.unsubscribe();
-      }
-    }
+  blockSelectedUsers(){
 
+  }
+
+  unblockSelectedUsers(){
+
+  }
+
+  deleteSelectedUsers(){
+
+  }
+
+  deleteUnverifiedUsers(){
+
+  }
 }

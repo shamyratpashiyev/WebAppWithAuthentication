@@ -1,11 +1,12 @@
+using WebAppWithAuthenticationApi.Controllers;
 using WebAppWithAuthenticationApi.Enums;
 
 namespace WebAppWithAuthenticationApi.Dtos;
 
-public class UserDto
+public class UserDto : BaseDto
 {
-    public UserDto(string name, string surname, string? email, 
-        string? position, DateTime? lastLoginDate, UserStatus status)
+    public UserDto(int id, string name, string surname, string? email, 
+        string? position, DateTime? lastLoginDate, UserStatus status) :  base(id)
     {
         Name = name;
         Surname = surname;
