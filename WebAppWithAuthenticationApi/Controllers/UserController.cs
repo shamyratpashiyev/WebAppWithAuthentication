@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -5,6 +6,7 @@ using WebAppWithAuthenticationApi.Data;
 using WebAppWithAuthenticationApi.Dtos;
 using WebAppWithAuthenticationApi.Enums;
 using WebAppWithAuthenticationApi.Models;
+using WebAppWithAuthenticationApi.Services;
 
 namespace WebAppWithAuthenticationApi.Controllers;
 
@@ -14,16 +16,26 @@ public class UserController : ControllerBase
 {
     private readonly UserManager<User> _userManager;
     private readonly AppDbContext _dbContext;
+    private readonly IJwtService _jwtService;
 
     public UserController(
         UserManager<User> userManager,
-        AppDbContext dbContext
+        AppDbContext dbContext,
+        IJwtService jwtService
     )
     {
         _userManager = userManager;
         _dbContext = dbContext;
+        _jwtService = jwtService;
     }
 
+    [HttpGet("get-token")]
+    public async Task<string> GetToken()
+    {
+        return _jwtService.Generate("admin");
+    }
+    
+    [Authorize]
     [HttpGet]
     public async Task<List<UserDto>> GetList(string? filter)
     {

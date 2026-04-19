@@ -1,10 +1,12 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using WebAppWithAuthenticationApi.Enums;
 using WebAppWithAuthenticationApi.Models;
 
 namespace WebAppWithAuthenticationApi.Data;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext<User, IdentityRole<int>, int>
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
@@ -14,6 +16,8 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
         modelBuilder.Entity<User>().HasKey(x => x.Id);
         modelBuilder.Entity<User>().Property(x => x.Name).IsRequired();
         modelBuilder.Entity<User>().Property(x => x.Surname).IsRequired();
