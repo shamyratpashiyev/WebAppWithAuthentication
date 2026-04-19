@@ -9,15 +9,18 @@ import {UserDto} from '../models/models';
 })
 export class UserService {
   private API_BASE_URL = inject<string>(API_BASE_URL);
-  private serviceBaseUrl = `${this.API_BASE_URL}/User`;
+  private serviceBaseUrl = `${this.API_BASE_URL}/api/user`;
 
   constructor(private httpClient: HttpClient) {}
 
-  getAll = (): Observable<UserDto[]> => {
-    return this.httpClient.request<UserDto[]>('GET', `${this.serviceBaseUrl}/GetAll`)
+  getList = (filter?: string): Observable<UserDto[]> => {
+    return this.httpClient.request<UserDto[]>('GET', `${this.serviceBaseUrl}${(filter ? '?filter=' + filter : '')}`)
   }
 
-  getFiltered = (filter?: string): Observable<UserDto[]> => {
-    return this.httpClient.request<UserDto[]>('GET', `${this.serviceBaseUrl}/GetFiltered${(filter ? '?filter=' + filter : '')}`)
+  block = (idList: number[]): Observable<void> => {
+    return this.httpClient.request<void>('POST', `${this.serviceBaseUrl}/block`, {
+      body: JSON.stringify(idList),
+      headers: { 'Content-Type': 'application/json' },
+    })
   }
 }

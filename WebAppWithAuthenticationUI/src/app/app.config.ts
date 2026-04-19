@@ -10,6 +10,8 @@ import { routes } from './app.routes';
 import { environment } from '../environments/environment';
 import {TimeagoModule} from 'ngx-timeago';
 import {provideSweetAlert2, SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
+import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import {errorHandlerInterceptor} from './interceptors/error-handler-interceptor';
 
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL', {
   providedIn: 'root',
@@ -25,5 +27,8 @@ export const appConfig: ApplicationConfig = {
       fireOnInit: false,
       dismissOnDestroy: true,
     }),
+    provideHttpClient(
+      withInterceptors([errorHandlerInterceptor])
+    )
   ]
 };

@@ -42,6 +42,8 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/602e02d2450f4d57a2dbd6ba8c6a0d6812b08/36/cb9cb9cf/ConfigurationBinder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc65597d735b4e3b97874bb6307e2b042b2620/48/ea9c16f9/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="gitIndexFs://67c64620:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi/Controllers/UserController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4,
@@ -143,7 +145,8 @@
       <workItem from="1776394633410" duration="43000" />
       <workItem from="1776394744472" duration="700000" />
       <workItem from="1776395479728" duration="2794000" />
-      <workItem from="1776504696541" duration="10220000" />
+      <workItem from="1776504696541" duration="10313000" />
+      <workItem from="1776574969645" duration="5475000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -161,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776398816162</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="In the process of connecting the UI to the backend">
+      <option name="closed" value="true" />
+      <created>1776521631912</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1776521631912</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +186,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Constructing and connecting the UI to the backend" />
+    <MESSAGE value="In the process of connecting the UI to the backend" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">

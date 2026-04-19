@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, signal, Signal} from '@angular/core';
+import {Component, computed, signal} from '@angular/core';
 import {UserService} from '../../services/user-service';
 import {UserDto} from '../../models/models';
 import {switchMap} from 'rxjs';
@@ -19,27 +19,56 @@ import {toObservable, toSignal} from '@angular/core/rxjs-interop';
   templateUrl: './users.html',
   styleUrl: './users.scss',
 })
-export class Users implements OnInit {
+export class Users {
   filter = signal<string>('');
+  refreshCount = signal<number>(0);
+  allUserSelected = signal<boolean>(false);
+
   userListSignal = toSignal<UserDto[]>(
-    toObservable(this.filter)
-      .pipe(
-        switchMap(filter => this.userService.getFiltered(filter))
+    toObservable(computed(() => ({ filter: this.filter(), refresh: this.refreshCount() })
+    )).pipe(
+        switchMap(({ filter }) => this.userService.getList(filter))
       )
   );
+  selectedUserIdList = signal<Set<number>>(new Set());
 
-  constructor(public userService: UserService) {
+  constructor(private userService: UserService) {
   }
 
   onSearch(e: any): void {
     this.filter.set(e.target.value);
   }
 
-  ngOnInit(): void {
+  onUserSelect(e: any): void {
+    const id = Number(e.target.id);
+    this.selectedUserIdList.update(list => {
+      if (e.target.checked) {
+        list.add(id);
+      } else {
+        list.delete(id);
+      }
+      return list;
+    });
+  }
+
+  onAllUserSelect(e: any): void {
+    this.allUserSelected.set(true);
+    this.selectedUserIdList.update(list => {
+      if (e.target.checked) {
+        list = new Set<number>(this.userListSignal()?.map(x => Number(x.id)));
+      } else {
+        list.clear();
+      }
+      return list;
+    });
   }
 
   blockSelectedUsers(){
-
+    this.userService.block([...this.selectedUserIdList()]).subscribe({
+      complete: () => {
+        this.reloadUsers();
+      }
+    });
   }
 
   unblockSelectedUsers(){
@@ -52,5 +81,11 @@ export class Users implements OnInit {
 
   deleteUnverifiedUsers(){
 
+  }
+
+  private reloadUsers(): void {
+    this.selectedUserIdList.set(new Set<number>());
+    this.allUserSelected.set(false);
+    this.refreshCount.update(x => x + 1);
   }
 }
