@@ -64,7 +64,7 @@ export class Users {
   }
 
   blockSelectedUsers(){
-    this.userService.block([...this.selectedUserIdList()]).subscribe({
+    this.userService.blockSelected([...this.selectedUserIdList()]).subscribe({
       complete: () => {
         this.reloadUsers();
       }
@@ -72,15 +72,27 @@ export class Users {
   }
 
   unblockSelectedUsers(){
-
+    this.userService.unblockSelected([...this.selectedUserIdList()]).subscribe({
+      complete: () => {
+        this.reloadUsers();
+      }
+    });
   }
 
   deleteSelectedUsers(){
-
+    this.userService.deleteSelected([...this.selectedUserIdList()]).subscribe({
+      complete: () => {
+        this.reloadUsers();
+      }
+    });
   }
 
   deleteUnverifiedUsers(){
-
+    this.userService.deleteUnverified().subscribe({
+      complete: () => {
+        this.reloadUsers();
+      }
+    });
   }
 
   private reloadUsers(): void {

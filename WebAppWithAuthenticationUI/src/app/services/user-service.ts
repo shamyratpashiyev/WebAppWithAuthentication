@@ -17,10 +17,28 @@ export class UserService {
     return this.httpClient.request<UserDto[]>('GET', `${this.serviceBaseUrl}${(filter ? '?filter=' + filter : '')}`)
   }
 
-  block = (idList: number[]): Observable<void> => {
-    return this.httpClient.request<void>('POST', `${this.serviceBaseUrl}/block`, {
+  blockSelected = (idList: number[]): Observable<void> => {
+    return this.httpClient.request<void>('PUT', `${this.serviceBaseUrl}/block-selected`, {
       body: JSON.stringify(idList),
       headers: { 'Content-Type': 'application/json' },
     })
+  }
+
+  unblockSelected = (idList: number[]): Observable<void> => {
+    return this.httpClient.request<void>('PUT', `${this.serviceBaseUrl}/unblock-selected`, {
+      body: JSON.stringify(idList),
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
+
+  deleteSelected = (idList: number[]): Observable<void> => {
+    return this.httpClient.request<void>('DELETE', `${this.serviceBaseUrl}/delete-selected`, {
+      body: JSON.stringify(idList),
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
+
+  deleteUnverified = (): Observable<void> => {
+    return this.httpClient.request<void>('DELETE', `${this.serviceBaseUrl}/delete-unverified`)
   }
 }

@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -40,11 +39,10 @@ public class UserController : ControllerBase
             .ToListAsync();
     }
 
-    [HttpPost("block")]
+    [HttpPut("block-selected")]
     public async Task<ActionResult> Block([FromBody] List<int> idList)
     {
         var selectedUsers = await _userManager.Users.Where(x => idList.Contains(x.Id)).ToListAsync();
-
         try
         {
             selectedUsers.ForEach(x => x.SetStatus(UserStatus.Blocked));
@@ -55,7 +53,53 @@ public class UserController : ControllerBase
         {
             return StatusCode(500, "Internal server error");
         }
-        
+        return Ok();
+    }
+    
+    [HttpPut("unblock-selected")]
+    public async Task<ActionResult> Unblock([FromBody] List<int> idList)
+    {
+        var selectedUsers = await _userManager.Users.Where(x => idList.Contains(x.Id)).ToListAsync();
+        try
+        {
+            selectedUsers.ForEach(x => x.SetStatus(UserStatus.Active));
+            _dbContext.Users.UpdateRange(selectedUsers);
+            await _dbContext.SaveChangesAsync();
+        }
+        catch
+        {
+            return StatusCode(500, "Internal server error");
+        }
+        return Ok();
+    }
+    
+    [HttpDelete("delete-selected")]
+    public async Task<ActionResult> Delete([FromBody] List<int> idList)
+    {
+        try
+        {
+            await _dbContext.Users.Where(x => idList.Contains(x.Id)).ExecuteDeleteAsync();
+            await _dbContext.SaveChangesAsync();
+        }
+        catch
+        {
+            return StatusCode(500, "Internal server error");
+        }
+        return Ok();
+    }
+    
+    [HttpDelete("delete-unverified")]
+    public async Task<ActionResult> DeleteUnverified()
+    {
+        try
+        {
+            await _dbContext.Users.Where(x => x.Status == UserStatus.Unverified).ExecuteDeleteAsync();
+            await _dbContext.SaveChangesAsync();
+        }
+        catch
+        {
+            return StatusCode(500, "Internal server error");
+        }
         return Ok();
     }
 }
