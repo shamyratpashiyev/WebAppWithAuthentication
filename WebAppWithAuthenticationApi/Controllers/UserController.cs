@@ -16,25 +16,16 @@ public class UserController : ControllerBase
 {
     private readonly UserManager<User> _userManager;
     private readonly AppDbContext _dbContext;
-    private readonly IJwtService _jwtService;
 
     public UserController(
         UserManager<User> userManager,
-        AppDbContext dbContext,
-        IJwtService jwtService
+        AppDbContext dbContext
     )
     {
         _userManager = userManager;
         _dbContext = dbContext;
-        _jwtService = jwtService;
     }
 
-    [HttpGet("get-token")]
-    public async Task<string> GetToken()
-    {
-        return _jwtService.Generate("admin");
-    }
-    
     [Authorize]
     [HttpGet]
     public async Task<List<UserDto>> GetList(string? filter)

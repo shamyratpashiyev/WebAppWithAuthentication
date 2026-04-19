@@ -31,4 +31,9 @@ public class User : IdentityUser<int>
     {
         Status = status;
     }
+
+    public void SetLastLoginDate(DateTime? lastLoginDate)
+    {
+        LastLoginDate = lastLoginDate;
+    }
 }

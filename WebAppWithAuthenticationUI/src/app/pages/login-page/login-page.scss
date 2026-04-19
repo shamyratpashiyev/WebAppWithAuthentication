@@ -1,0 +1,82 @@
+.bg-light-col {
+  background-color: #ffffff;
+}
+
+.logo-text {
+  color: #3b82f6; /* Specify the blue for the logo */
+  font-weight: bold;
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+.subtitle-text {
+  color: #8c8c8c;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.header-text {
+  color: #333333;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: -0.25rem;
+  margin-bottom: 2rem;
+}
+
+.input-group-text {
+  background-color: #f8f9fa; /* Lighter background for the icon box */
+  border-left: none;
+  color: #acb0b5; /* Icon color */
+}
+
+.form-control {
+  border-right: none;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #ced4da;
+}
+
+.form-control::placeholder {
+  color: #d0d2d4;
+}
+
+.form-check-input:checked {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.btn-primary-app {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+  font-weight: 500;
+}
+.btn-primary-app:hover {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+/* Add a custom font size for the footer links */
+.fs-7 {
+  font-size: 0.85rem;
+}
+
+/* Image Column Styling */
+.img-col {
+  background-image: url('/wallpaper_login_page.png');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  border-top-right-radius: 12px; /* Slight rounded corner for modern look */
+  border-bottom-right-radius: 12px;
+}
+
+/* Responsive padding adjustments for the form container */
+.form-container {
+  max-width: 480px;
+  width: 100%;
+  padding: 2rem;
+  margin: auto;
+}

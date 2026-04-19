@@ -1,0 +1,48 @@
+<div class="vw-100 vh-100">
+  <div class="container-fluid h-100 p-0 m-0">
+    <div class="row g-0 h-100">
+      <div class="col-md-6 d-flex flex-column align-items-center bg-light-col h-100 p-0">
+        <div class="form-container">
+          <h1 class="logo-text">THE APP</h1>
+
+          <p class="subtitle-text mb-1">Start your journey</p>
+          <h2 class="header-text">Sign In to The App</h2>
+
+          <div class="mb-3 input-group">
+            <input type="email" class="form-control" [value]="email()" (change)="onEmailChange($event)">
+            <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+          </div>
+
+          <div class="mb-3 input-group">
+            <input [type]="isPasswordHidden() ? 'password' : 'text'" class="form-control" [value]="password()" (change)="onPasswordChange($event)">
+            <span class="input-group-text cursor-pointer" style="cursor: pointer;" (click)="togglePasswordHidden()">
+              <i class="bi" [class.bi-eye-fill]="isPasswordHidden()" [class.bi-eye-slash-fill]="!isPasswordHidden()"></i>
+            </span>
+          </div>
+
+          <div class="d-flex flex-column mb-4">
+            <div class="form-check mb-4">
+              <input class="form-check-input" type="checkbox" id="rememberMe" [value]="rememberMe()" (change)="onRememberMeToggle()">
+              <label class="form-check-label text-muted" for="rememberMe">
+                Remember me
+              </label>
+            </div>
+
+            <div class="d-grid mt-3">
+              <button type="submit" class="btn btn-primary btn-primary-app btn-lg">Sign In</button>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between text-muted fs-7 mt-5">
+            <span>Don't have an account? <a href="#" class="link-primary text-decoration-none">Sign up</a></span>
+            <a href="#" class="link-primary text-decoration-none">Forgot password?</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 g-0">
+        <div class="img-col"></div>
+      </div>
+    </div>
+  </div>
+</div>

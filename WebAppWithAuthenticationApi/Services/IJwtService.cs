@@ -1,9 +1,11 @@
+using WebAppWithAuthenticationApi.Models;
+
 namespace WebAppWithAuthenticationApi.Services;
 
 public interface IJwtService
 {
     /// <summary>
-    /// Generates JwtToken based on UserName.
+    /// Generates JwtToken based on provided credentials.
     /// </summary>
-    string Generate(string userName);
+    string Generate(User user, bool rememberMe = false);
 }
