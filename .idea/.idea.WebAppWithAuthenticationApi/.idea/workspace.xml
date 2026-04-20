@@ -45,8 +45,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc65597d735b4e3b97874bb6307e2b042b2620/48/ea9c16f9/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Dtos/LoginRequestDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/IAuthService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/IJwtService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/JwtService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="gitIndexFs://67c64620:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi/Controllers/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="gitIndexFs://67c64620:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi/Controllers/UserController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -58,35 +61,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.WebAppWithAuthenticationApi: http.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationUI/WebAppWithAuthenticationUI/package.json&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.ng serve.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationUI/node_modules/typescript/lib&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.WebAppWithAuthenticationApi: http.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationUI/WebAppWithAuthenticationUI/package.json",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.ng serve.executor": "Run",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationUI/node_modules/typescript/lib"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;repository&quot;
+  "keyToStringList": {
+    "GitStage.ChangesTree.GroupingKeys": [
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.WebAppWithAuthenticationApi: http">
     <configuration name="WebAppWithAuthenticationApi: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi.csproj" />
@@ -150,7 +153,9 @@
       <workItem from="1776394744472" duration="700000" />
       <workItem from="1776395479728" duration="2794000" />
       <workItem from="1776504696541" duration="10313000" />
-      <workItem from="1776574969645" duration="17462000" />
+      <workItem from="1776574969645" duration="18082000" />
+      <workItem from="1776653602847" duration="2913000" />
+      <workItem from="1776691125696" duration="5114000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -200,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776597133964</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="In the process of connecting the login page to the backend">
+      <option name="closed" value="true" />
+      <created>1776604093383</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1776604093383</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +230,7 @@
     <MESSAGE value="In the process of connecting the UI to the backend" />
     <MESSAGE value="Finished connecting the UI to the backend" />
     <MESSAGE value="Configured JwtAuthentication in the backend" />
+    <MESSAGE value="In the process of connecting the login page to the backend" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
@@ -234,6 +248,58 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
+          <line>32</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'AuthenticateAsync'">
+            <startOffsets>
+              <option value="1088" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1150" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
+          <line>34</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'AuthenticateAsync'">
+            <startOffsets>
+              <option value="1160" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1242" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
+          <line>53</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'AuthenticateAsync'">
+            <startOffsets>
+              <option value="2012" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2065" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
+          <line>36</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'AuthenticateAsync'">
+            <startOffsets>
+              <option value="1265" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1307" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

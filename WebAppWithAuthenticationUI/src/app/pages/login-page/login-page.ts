@@ -1,17 +1,24 @@
 import {Component, signal} from '@angular/core';
 import {AuthService} from '../../services/auth-service';
+import {LoginRequestDto} from '../../models/models';
+import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
-  imports: [],
+  imports: [
+    ReactiveFormsModule
+  ],
   templateUrl: './login-page.html',
   styleUrl: './login-page.scss',
 })
 export class LoginPage {
   isPasswordHidden = signal<boolean>(true);
-  email = signal<string>('');
-  password = signal<string>('');
-  rememberMe = signal<boolean>(false);
+
+  loginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+    rememberMe: new FormControl(false)
+  })
 
   constructor(private authService: AuthService) {
   }
@@ -20,19 +27,8 @@ export class LoginPage {
     this.isPasswordHidden.update(x => !x);
   };
 
-  login(): void {
-    this.authService.login(this.email(), this.password(), this.rememberMe());
-  }
-
-  onRememberMeToggle(): void {
-    this.rememberMe.update(x => !x);
-  }
-
-  onEmailChange(e: any): void {
-    this.email.set(e.target.value);
-  }
-
-  onPasswordChange(e: any): void {
-    this.password.set(e.target.value);
+  login(e: any): void {
+    e.preventDefault();
+    this.authService.login(this.loginForm.value as LoginRequestDto).subscribe();
   }
 }

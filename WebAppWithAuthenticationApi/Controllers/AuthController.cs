@@ -11,41 +11,33 @@ namespace WebAppWithAuthenticationApi.Controllers;
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly UserManager<User> _userManager;
-    private readonly SignInManager<User> _signInManager;
-    private readonly IJwtService _jwtService;
+    private readonly IAuthService _authService;
 
     public AuthController(
-        UserManager<User> userManager,
-        SignInManager<User> signInManager,
-        IJwtService jwtService)
+        IAuthService authService)
     {
-        _userManager = userManager;
-        _signInManager = signInManager;
-        _jwtService = jwtService;
+        _authService = authService;
     }
 
+    [HttpPost("login")]
     public async Task<ActionResult> Login([FromBody] LoginRequestDto request)
     {
-        // 1. Find the user by username
-        var user = await _userManager.FindByEmailAsync(request.Email);
-        if (user == null)
+        try
+        {
+            var res = await _authService.AuthenticateAsync(request);
+            Response.Cookies.Append("access_token", res.token, res.cookieOptions);
+            return Ok(new { message = "Login successful" });
+        }
+        catch
         {
             return Unauthorized("Invalid username or password.");
         }
-
-        // 2. Check the password
-        var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
-
-        if (result.Succeeded)
-        {
-            user.SetLastLoginDate(DateTime.UtcNow);
-            await _userManager.UpdateAsync(user);
-
-            var token = _jwtService.Generate(user, request.RememberMe); // Ensure your service accepts a User object
-            return Ok(token);
-        }
-
-        return Unauthorized("Invalid username or password.");
+    }
+    
+    [HttpPost("logout")]
+    public IActionResult Logout()
+    {
+        Response.Cookies.Delete("access_token");
+        return Ok(new { message = "Logged out" });
     }
 }

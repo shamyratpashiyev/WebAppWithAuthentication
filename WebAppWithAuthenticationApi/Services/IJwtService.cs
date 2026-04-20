@@ -7,5 +7,5 @@ public interface IJwtService
     /// <summary>
     /// Generates JwtToken based on provided credentials.
     /// </summary>
-    string Generate(User user, bool rememberMe = false);
+    string GenerateJwt(User user, bool rememberMe = false);
 }

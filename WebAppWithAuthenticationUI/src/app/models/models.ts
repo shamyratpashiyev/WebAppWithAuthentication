@@ -12,3 +12,9 @@ export interface UserDto extends BaseDto {
   lastLoginDate?: string;
   status: UserStatus;
 }
+
+export interface LoginRequestDto {
+  email: string;
+  password: string;
+  rememberMe: boolean;
+}

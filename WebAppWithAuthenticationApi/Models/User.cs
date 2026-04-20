@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Identity;
 using WebAppWithAuthenticationApi.Enums;
 
@@ -7,7 +5,8 @@ namespace WebAppWithAuthenticationApi.Models;
 
 public class User : IdentityUser<int>
 {
-    public User(int id, string name, string surname, string? position, DateTime? lastLoginDate, UserStatus status)
+    public User(int id, string name, string surname, string? position, DateTime? lastLoginDate, UserStatus status,
+        string? refreshToken = null, DateTime? refreshTokenExpirationDate = null)
     {
         Id = id;
         Name = name;
@@ -15,6 +14,8 @@ public class User : IdentityUser<int>
         Position = position;
         LastLoginDate = lastLoginDate;
         Status = status;
+        RefreshToken = refreshToken;
+        RefreshTokenExpirationDate = refreshTokenExpirationDate;
     }
 
     public string Name { get; private set; }
@@ -27,6 +28,10 @@ public class User : IdentityUser<int>
 
     public UserStatus Status { get; private set; }
 
+    public string? RefreshToken { get; private set; }
+
+    public DateTime? RefreshTokenExpirationDate { get; private set; }
+
     public void SetStatus(UserStatus status)
     {
         Status = status;
@@ -36,4 +41,17 @@ public class User : IdentityUser<int>
     {
         LastLoginDate = lastLoginDate;
     }
+
+    public void SetRefreshToken(string refreshToken, DateTime refreshTokenExpirationDate)
+    {
+        if (refreshTokenExpirationDate < DateTime.Now || string.IsNullOrEmpty(refreshToken))
+        {
+            throw new ArgumentException("Invalid refresh token credentials");
+        }
+
+        RefreshToken = refreshToken;
+        RefreshTokenExpirationDate = refreshTokenExpirationDate;
+    }
+    
+    
 }

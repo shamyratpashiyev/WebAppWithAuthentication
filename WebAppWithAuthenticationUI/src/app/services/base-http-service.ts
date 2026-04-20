@@ -7,6 +7,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class BaseHttpService {
   protected API_BASE_URL = `${inject<string>(API_BASE_URL)}/api`;
+  protected defaultOptions = { withCredentials: true };
   constructor(protected httpClient: HttpClient) {
   }
 }

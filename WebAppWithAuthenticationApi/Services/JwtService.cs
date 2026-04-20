@@ -15,7 +15,7 @@ public class JwtService : IJwtService
         _configuration = configuration;
     }
 
-    public string Generate(User user, bool rememberMe = false)
+    public string GenerateJwt(User user, bool rememberMe = false)
     {
         var jwtSettingsSection = _configuration.GetSection("JwtSettings");
         var expirationTimeInSec = jwtSettingsSection["ExpirationTimeInSec"];
@@ -46,4 +46,6 @@ public class JwtService : IJwtService
         
         return tokenHandler.WriteToken(token);
     }
+    
+    
 }
