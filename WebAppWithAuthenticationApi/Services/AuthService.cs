@@ -80,6 +80,7 @@ public class AuthService : IAuthService
         {
             var accessCookie = GenerateAccessCookie(user);
             var refreshCookie = GenerateRefreshCookie(user);
+            await _userManager.UpdateAsync(user);
             return new List<(string tokenName, string tokenValue, CookieOptions cookieOptions)>()
             {
                 accessCookie,
@@ -96,10 +97,10 @@ public class AuthService : IAuthService
             
         var cookieOptions = new CookieOptions
         {
-            HttpOnly = true,        // Prevents XSS (JavaScript can't read it)
-            Secure = !_hostEnvironment.IsDevelopment(),          // Only sent over HTTPS
-            SameSite = SameSiteMode.Strict, // Prevents CSRF
-            Expires = DateTime.UtcNow.AddSeconds(expirationTimeInSec) // Match your JWT expiration
+            HttpOnly = true,
+            Secure = !_hostEnvironment.IsDevelopment(),
+            SameSite = SameSiteMode.Strict,
+            Expires = DateTime.UtcNow.AddSeconds(expirationTimeInSec)
         };
         return ("access_token", token, cookieOptions);
     }
@@ -112,10 +113,10 @@ public class AuthService : IAuthService
                 
         var tokenCookieOptions = new CookieOptions
         {
-            HttpOnly = true,        // Prevents XSS (JavaScript can't read it)
-            Secure = !_hostEnvironment.IsDevelopment(),          // Only sent over HTTPS
-            SameSite = SameSiteMode.Strict, // Prevents CSRF
-            Expires = tokenExpirationDate // Match your JWT expiration
+            HttpOnly = true,
+            Secure = !_hostEnvironment.IsDevelopment(),
+            SameSite = SameSiteMode.Strict,
+            Expires = tokenExpirationDate
         };
         user.SetRefreshToken(token.tokenValue, tokenExpirationDate);
         return ("refresh_token", token.serializedString, tokenCookieOptions);

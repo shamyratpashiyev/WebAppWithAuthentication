@@ -55,12 +55,12 @@ public class AuthController : ControllerBase
         }
     }
 
-    [HttpPost("refresh")]
+    [HttpPost("refresh-token")]
     public async Task<IActionResult> RefreshAsync()
     {
         var refreshToken = Request.Cookies["refresh_token"];
         
-        if (string.IsNullOrEmpty(refreshToken))
+        if (!string.IsNullOrEmpty(refreshToken))
         {
             var decodedJson = Convert.FromBase64String(refreshToken);
             var deserialized = JsonSerializer.Deserialize<RefreshTokenDto>(decodedJson);

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {BaseHttpService} from './base-http-service';
 import {Observable} from 'rxjs';
 import {LoginRequestDto, SignupRequestDto} from '../models/models';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +29,7 @@ export class AuthService extends BaseHttpService {
   }
 
   refresh = (): Observable<void> => {
-    return this.httpClient.request<void>('POST', `${this.serviceBaseUrl}/refresh`,
+    return this.httpClient.request<void>('POST', `${this.serviceBaseUrl}/${environment.refreshTokenPath}`,
       {
         ...this.defaultOptions,
       })

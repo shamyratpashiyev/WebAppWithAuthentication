@@ -45,7 +45,7 @@ public class User : IdentityUser<int>
 
     public void SetRefreshToken(string refreshToken, DateTime refreshTokenExpirationDate)
     {
-        if (refreshTokenExpirationDate < DateTime.Now || string.IsNullOrEmpty(refreshToken))
+        if (refreshTokenExpirationDate < DateTime.UtcNow || string.IsNullOrEmpty(refreshToken))
         {
             throw new ArgumentException("Invalid refresh token credentials");
         }
