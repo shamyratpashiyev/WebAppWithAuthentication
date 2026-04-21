@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BaseHttpService} from './base-http-service';
 import {Observable} from 'rxjs';
-import {LoginRequestDto} from '../models/models';
+import {LoginRequestDto, SignupRequestDto} from '../models/models';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +9,17 @@ import {LoginRequestDto} from '../models/models';
 export class AuthService extends BaseHttpService {
   private serviceBaseUrl = `${this.API_BASE_URL}/auth`;
 
-  login = (input: LoginRequestDto): Observable<string> => {
-    return this.httpClient.request<string>('POST', `${this.serviceBaseUrl}/login`,
+  login = (input: LoginRequestDto): Observable<void> => {
+    return this.httpClient.request<void>('POST', `${this.serviceBaseUrl}/login`,
+      {
+        ...this.defaultOptions,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(input),
+      })
+  }
+
+  register = (input: SignupRequestDto): Observable<void> => {
+    return this.httpClient.request<void>('POST', `${this.serviceBaseUrl}/register`,
       {
         ...this.defaultOptions,
         headers: { 'Content-Type': 'application/json' },

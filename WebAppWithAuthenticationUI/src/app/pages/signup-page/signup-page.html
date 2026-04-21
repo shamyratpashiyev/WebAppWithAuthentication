@@ -1,0 +1,63 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Create Account</h2>
+    <p class="subtitle">Join our platform to get started</p>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" formControlName="name" type="text" class="form-control" placeholder="John">
+        </div>
+        <div class="form-group">
+          <label for="surname">Surname</label>
+          <input id="surname" formControlName="surname" type="text" class="form-control" placeholder="Doe">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="position">Position (Optional)</label>
+        <input id="position" formControlName="position" type="text" class="form-control" placeholder="Backend Developer">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input id="email" formControlName="email" type="email" class="form-control" placeholder="email@example.com">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-wrapper">
+          <input
+            id="password"
+            [type]="isPasswordHidden() ? 'password' : 'text'"
+            formControlName="password"
+            class="form-control">
+          <button type="button" class="toggle-btn" (click)="togglePasswordHidden()">
+            {{ isPasswordHidden() ? 'Show' : 'Hide' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          id="confirmPassword"
+          [type]="isPasswordHidden() ? 'password' : 'text'"
+          formControlName="confirmPassword"
+          class="form-control">
+
+        @if (signupForm.errors?.['passwordMismatch'] && signupForm.get('confirmPassword')?.touched) {
+          <span class="error-text">Passwords do not match.</span>
+        }
+      </div>
+
+      <button type="submit" class="btn-primary" [disabled]="signupForm.invalid">
+        Sign Up
+      </button>
+
+      <div class="auth-footer">
+        Already have an account? <a [routerLink]="['/login']">Log In</a>
+      </div>
+    </form>
+  </div>
+</div>

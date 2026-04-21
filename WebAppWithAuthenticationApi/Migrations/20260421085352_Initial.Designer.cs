@@ -11,7 +11,7 @@ using WebAppWithAuthenticationApi.Data;
 namespace WebAppWithAuthenticationApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260420144328_Initial")]
+    [Migration("20260421085352_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

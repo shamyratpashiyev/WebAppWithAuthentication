@@ -7,7 +7,7 @@
 
           <p class="subtitle-text mb-1">Start your journey</p>
           <h2 class="header-text">Sign In to The App</h2>
-          <form [formGroup]="loginForm" (submit)="login($event)">
+          <form [formGroup]="loginForm" (submit)="onSubmit($event)">
             <div class="mb-3 input-group">
               <input type="email" formControlName="email" class="form-control">
               <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
@@ -34,7 +34,7 @@
             </div>
 
             <div class="d-flex justify-content-between text-muted fs-7 mt-5">
-              <span>Don't have an account? <a href="#" class="link-primary text-decoration-none">Sign up</a></span>
+              <span>Don't have an account? <a [routerLink]="['/signup']" class="link-primary text-decoration-none">Sign up</a></span>
               <a href="#" class="link-primary text-decoration-none">Forgot password?</a>
             </div>
           </form>

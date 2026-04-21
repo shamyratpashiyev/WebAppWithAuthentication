@@ -5,5 +5,13 @@ namespace WebAppWithAuthenticationApi.Services;
 
 public interface IAuthService
 {
-    Task<(CookieOptions cookieOptions, string token)> AuthenticateAsync(LoginRequestDto request);
+    /// <summary>
+    /// Handles authentication logic.
+    /// </summary>
+    Task<List<(CookieOptions cookieOptions, string tokenName, string tokenValue)>> AuthenticateAsync(LoginRequestDto request);
+
+    /// <summary>
+    /// Registers new user and authenticates it right away.
+    /// </summary>
+    Task<List<(CookieOptions cookieOptions, string tokenName, string tokenValue)>> RegisterAndAuthenticateAsync(SignupRequestDto request);
 }

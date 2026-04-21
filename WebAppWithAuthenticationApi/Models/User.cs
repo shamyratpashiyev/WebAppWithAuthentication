@@ -5,10 +5,11 @@ namespace WebAppWithAuthenticationApi.Models;
 
 public class User : IdentityUser<int>
 {
-    public User(int id, string name, string surname, string? position, DateTime? lastLoginDate, UserStatus status,
+    public User(string email, string name, string surname, string? position, DateTime? lastLoginDate, UserStatus status,
         string? refreshToken = null, DateTime? refreshTokenExpirationDate = null)
     {
-        Id = id;
+        UserName = email;
+        Email = email;
         Name = name;
         Surname = surname;
         Position = position;

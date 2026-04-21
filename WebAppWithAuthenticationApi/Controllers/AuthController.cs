@@ -1,8 +1,5 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using WebAppWithAuthenticationApi.Dtos;
-using WebAppWithAuthenticationApi.Models;
 using WebAppWithAuthenticationApi.Services;
 
 namespace WebAppWithAuthenticationApi.Controllers;
@@ -25,7 +22,11 @@ public class AuthController : ControllerBase
         try
         {
             var res = await _authService.AuthenticateAsync(request);
-            Response.Cookies.Append("access_token", res.token, res.cookieOptions);
+            foreach (var cookie in res)
+            {
+                Response.Cookies.Append(cookie.tokenName, cookie.tokenValue , cookie.cookieOptions);
+            }
+            
             return Ok(new { message = "Login successful" });
         }
         catch
@@ -34,10 +35,21 @@ public class AuthController : ControllerBase
         }
     }
     
-    [HttpPost("logout")]
-    public IActionResult Logout()
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] SignupRequestDto request)
     {
-        Response.Cookies.Delete("access_token");
-        return Ok(new { message = "Logged out" });
+        try
+        {
+            var res = await _authService.RegisterAndAuthenticateAsync(request);
+            foreach (var cookie in res)
+            {
+                Response.Cookies.Append(cookie.tokenName, cookie.tokenValue , cookie.cookieOptions);
+            }
+            return Ok(new { message = "Login successful" });
+        }
+        catch
+        {
+            return StatusCode(500, "Internal server error");
+        }
     }
 }

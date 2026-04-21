@@ -18,3 +18,12 @@ export interface LoginRequestDto {
   password: string;
   rememberMe: boolean;
 }
+
+export interface SignupRequestDto {
+  name: string;
+  surname: string;
+  position?: string;
+  email: string;
+  password: string;
+  rememberMe: boolean;
+}
