@@ -42,9 +42,11 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/602e02d2450f4d57a2dbd6ba8c6a0d6812b08/36/cb9cb9cf/ConfigurationBinder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62a2e5727a5b4e9e94e0978bf278dc29ed38/23/cb01dd97/CookieOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc65597d735b4e3b97874bb6307e2b042b2620/48/ea9c16f9/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Dtos/LoginRequestDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Dtos/RefreshTokenDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Dtos/SignupRequestDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/IAuthService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -157,7 +159,7 @@
       <workItem from="1776574969645" duration="18082000" />
       <workItem from="1776653602847" duration="2913000" />
       <workItem from="1776691125696" duration="5293000" />
-      <workItem from="1776742993105" duration="8704000" />
+      <workItem from="1776742993105" duration="14358000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -231,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776763638990</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Finished connecting the login/signup pages to the backend">
+      <option name="closed" value="true" />
+      <created>1776764269006</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1776764269006</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +260,7 @@
     <MESSAGE value="Configured JwtAuthentication in the backend" />
     <MESSAGE value="In the process of connecting the login page to the backend" />
     <MESSAGE value="In the process of connecting the login and register page to the backend" />
+    <MESSAGE value="Finished connecting the login/signup pages to the backend" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
@@ -269,143 +280,117 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>72</line>
+          <line>54</line>
           <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'AuthenticateAsync'">
             <startOffsets>
-              <option value="3305" />
+              <option value="1940" />
             </startOffsets>
             <endOffsets>
-              <option value="3319" />
+              <option value="1954" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>68</line>
+          <line>52</line>
           <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'AuthenticateAsync'">
             <startOffsets>
-              <option value="3160" />
+              <option value="1889" />
             </startOffsets>
             <endOffsets>
-              <option value="3197" />
+              <option value="1926" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>67</line>
+          <line>51</line>
           <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'AuthenticateAsync'">
             <startOffsets>
-              <option value="3111" />
+              <option value="1840" />
             </startOffsets>
             <endOffsets>
-              <option value="3147" />
+              <option value="1876" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>50</line>
+          <line>45</line>
           <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'AuthenticateAsync'">
             <startOffsets>
-              <option value="2114" />
+              <option value="1667" />
             </startOffsets>
             <endOffsets>
-              <option value="2137" />
+              <option value="1690" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>40</line>
+          <line>37</line>
           <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'AuthenticateAsync'">
             <startOffsets>
-              <option value="1549" />
+              <option value="1275" />
             </startOffsets>
             <endOffsets>
-              <option value="1641" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>39</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'AuthenticateAsync'">
-            <startOffsets>
-              <option value="1432" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1536" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>34</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'AuthenticateAsync'">
-            <startOffsets>
-              <option value="1194" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1256" />
+              <option value="1337" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>36</line>
+          <line>39</line>
           <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'AuthenticateAsync'">
             <startOffsets>
-              <option value="1266" />
+              <option value="1347" />
             </startOffsets>
             <endOffsets>
-              <option value="1348" />
+              <option value="1429" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>80</line>
+          <line>62</line>
           <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'RegisterAndAuthenticateAsync'">
             <startOffsets>
-              <option value="3569" />
+              <option value="2204" />
             </startOffsets>
             <endOffsets>
-              <option value="3702" />
+              <option value="2337" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>82</line>
+          <line>64</line>
           <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'RegisterAndAuthenticateAsync'">
             <startOffsets>
-              <option value="3711" />
+              <option value="2346" />
             </startOffsets>
             <endOffsets>
-              <option value="3779" />
+              <option value="2414" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>84</line>
+          <line>66</line>
           <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'RegisterAndAuthenticateAsync'">
             <startOffsets>
-              <option value="3789" />
+              <option value="2424" />
             </startOffsets>
             <endOffsets>
-              <option value="3810" />
+              <option value="2445" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="24" />

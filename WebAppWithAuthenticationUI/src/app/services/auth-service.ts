@@ -26,4 +26,11 @@ export class AuthService extends BaseHttpService {
         body: JSON.stringify(input),
       })
   }
+
+  refresh = (): Observable<void> => {
+    return this.httpClient.request<void>('POST', `${this.serviceBaseUrl}/refresh`,
+      {
+        ...this.defaultOptions,
+      })
+  }
 }

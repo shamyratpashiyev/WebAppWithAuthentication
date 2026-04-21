@@ -1,3 +1,5 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using WebAppWithAuthenticationApi.Dtos;
 using WebAppWithAuthenticationApi.Services;
@@ -17,7 +19,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<ActionResult> Login([FromBody] LoginRequestDto request)
+    public async Task<ActionResult> LoginAsync([FromBody] LoginRequestDto request)
     {
         try
         {
@@ -36,7 +38,7 @@ public class AuthController : ControllerBase
     }
     
     [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] SignupRequestDto request)
+    public async Task<IActionResult> RegisterAsync([FromBody] SignupRequestDto request)
     {
         try
         {
@@ -51,5 +53,25 @@ public class AuthController : ControllerBase
         {
             return StatusCode(500, "Internal server error");
         }
+    }
+
+    [HttpPost("refresh")]
+    public async Task<IActionResult> RefreshAsync()
+    {
+        var refreshToken = Request.Cookies["refresh_token"];
+        
+        if (string.IsNullOrEmpty(refreshToken))
+        {
+            var decodedJson = Convert.FromBase64String(refreshToken);
+            var deserialized = JsonSerializer.Deserialize<RefreshTokenDto>(decodedJson);
+            var res = await _authService.RefreshAsync(deserialized);
+            foreach (var cookie in res)
+            {
+                Response.Cookies.Append(cookie.tokenName, cookie.tokenValue , cookie.cookieOptions);
+            }
+
+            return Ok(new { message = "Login successful" });
+        }
+        return Unauthorized("Invalid refresh token.");
     }
 }

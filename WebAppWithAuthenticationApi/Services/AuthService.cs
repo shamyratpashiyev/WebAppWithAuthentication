@@ -1,4 +1,7 @@
 using System.Security.Cryptography;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebAppWithAuthenticationApi.Data;
@@ -30,45 +33,24 @@ public class AuthService : IAuthService
         _appDbContext = appDbContext;
     }
     
-    public async Task<List<(CookieOptions cookieOptions, string tokenName, string tokenValue)>> AuthenticateAsync(LoginRequestDto request)
+    public async Task<List<(string tokenName, string tokenValue, CookieOptions cookieOptions)>> AuthenticateAsync(LoginRequestDto request)
     {
         var user = await _userManager.FindByEmailAsync(request.Email);
 
         if (user != null && await _userManager.CheckPasswordAsync(user, request.Password))
         {
-            var accessToken = _jwtService.GenerateJwt(user);
-            var expirationTimeInSec = _configuration.GetSection("JwtSettings").GetValue<int>("ExpirationTimeInSec");
-            var result = new List<(CookieOptions cookieOptions, string tokenName, string tokenValue)>();
-            
-            var accessTokenCookieOptions = new CookieOptions
-            {
-                HttpOnly = true,        // Prevents XSS (JavaScript can't read it)
-                Secure = !_hostEnvironment.IsDevelopment(),          // Only sent over HTTPS
-                SameSite = SameSiteMode.Strict, // Prevents CSRF
-                Expires = DateTime.UtcNow.AddSeconds(expirationTimeInSec) // Match your JWT expiration
-            };
+            var result = new List<(string tokenName, string tokenValue, CookieOptions cookieOptions)>();
+            var accessCookie = GenerateAccessCookie(user);
+            result.Add(accessCookie);
             
             if (request.RememberMe)
             {
-                var refreshToken = GenerateRefreshToken();
-                var rememberMeExpirationTimeInDays = _configuration.GetSection("JwtSettings").GetValue<int>("RefreshExpirationTimeInDays");
-                var refreshTokenExpirationDate = DateTime.UtcNow.AddDays(rememberMeExpirationTimeInDays);
-                
-                var refreshTokenCookieOptions = new CookieOptions
-                {
-                    HttpOnly = true,        // Prevents XSS (JavaScript can't read it)
-                    Secure = !_hostEnvironment.IsDevelopment(),          // Only sent over HTTPS
-                    SameSite = SameSiteMode.Strict, // Prevents CSRF
-                    Expires = refreshTokenExpirationDate // Match your JWT expiration
-                };
-                user.SetRefreshToken(refreshToken, refreshTokenExpirationDate);
-                result.Add((refreshTokenCookieOptions, "refresh_token", refreshToken));
+                var refreshCookie = GenerateRefreshCookie(user);
+                result.Add(refreshCookie);
             }
 
             user.SetLastLoginDate(DateTime.Now);
             await _userManager.UpdateAsync(user);
-            
-            result.Add((accessTokenCookieOptions, "access_token", accessToken));
 
             return result;
         }
@@ -76,7 +58,7 @@ public class AuthService : IAuthService
         throw new Exception("Invalid username or password.");
     }
     
-    public async Task<List<(CookieOptions cookieOptions, string tokenName, string tokenValue)>> RegisterAndAuthenticateAsync(SignupRequestDto request)
+    public async Task<List<(string tokenName, string tokenValue, CookieOptions cookieOptions)>> RegisterAndAuthenticateAsync(SignupRequestDto request)
     {
         var user = new User(request.Email, request.Name, request.Surname, request.Position, DateTime.Now,
             UserStatus.Unverified);
@@ -90,20 +72,70 @@ public class AuthService : IAuthService
 
         throw new Exception("Error creating user");
     }
-    
-    private string GenerateRefreshToken()
-    {
-        // 1. Create a byte array to hold the random numbers
-        // 32 bytes (256 bits) or 64 bytes (512 bits) is standard for security
-        var randomNumber = new byte[64];
 
-        using (var rng = RandomNumberGenerator.Create())
+    public async Task<List<(string tokenName, string tokenValue, CookieOptions cookieOptions)>> RefreshAsync(RefreshTokenDto input)
+    {
+        var user = await _userManager.FindByIdAsync(input.UserId.ToString());
+        if (user != null && user.RefreshToken == input.Value && user.RefreshTokenExpirationDate > DateTime.UtcNow)
         {
-            // 2. Fill the array with cryptographically strong random bytes
-            rng.GetBytes(randomNumber);
-        
-            // 3. Convert to a URL-friendly string
-            return Convert.ToBase64String(randomNumber);
+            var accessCookie = GenerateAccessCookie(user);
+            var refreshCookie = GenerateRefreshCookie(user);
+            return new List<(string tokenName, string tokenValue, CookieOptions cookieOptions)>()
+            {
+                accessCookie,
+                refreshCookie
+            };
         }
+        throw new Exception("Error refreshing the token");
+    }
+
+    private (string tokenName, string tokenValue, CookieOptions cookieOptions) GenerateAccessCookie(User user)
+    {
+        var token = _jwtService.GenerateJwt(user);
+        var expirationTimeInSec = _configuration.GetSection("JwtSettings").GetValue<int>("ExpirationTimeInSec");
+            
+        var cookieOptions = new CookieOptions
+        {
+            HttpOnly = true,        // Prevents XSS (JavaScript can't read it)
+            Secure = !_hostEnvironment.IsDevelopment(),          // Only sent over HTTPS
+            SameSite = SameSiteMode.Strict, // Prevents CSRF
+            Expires = DateTime.UtcNow.AddSeconds(expirationTimeInSec) // Match your JWT expiration
+        };
+        return ("access_token", token, cookieOptions);
+    }
+    
+    private (string tokenName, string tokenValue, CookieOptions cookieOptions) GenerateRefreshCookie(User user)
+    {
+        var token = GenerateRefreshToken(user.Id);
+        var expirationTimeInDays = _configuration.GetSection("JwtSettings").GetValue<int>("RefreshExpirationTimeInDays");
+        var tokenExpirationDate = DateTime.UtcNow.AddDays(expirationTimeInDays);
+                
+        var tokenCookieOptions = new CookieOptions
+        {
+            HttpOnly = true,        // Prevents XSS (JavaScript can't read it)
+            Secure = !_hostEnvironment.IsDevelopment(),          // Only sent over HTTPS
+            SameSite = SameSiteMode.Strict, // Prevents CSRF
+            Expires = tokenExpirationDate // Match your JWT expiration
+        };
+        user.SetRefreshToken(token.tokenValue, tokenExpirationDate);
+        return ("refresh_token", token.serializedString, tokenCookieOptions);
+    }
+    
+    private (string tokenValue, string serializedString) GenerateRefreshToken(int userId)
+    {
+        var randomBytes = new byte[64];
+        using var rng = RandomNumberGenerator.Create();
+        rng.GetBytes(randomBytes);
+        var secureValue = Convert.ToBase64String(randomBytes);
+
+        var container = new RefreshTokenDto() 
+        { 
+            UserId = userId, 
+            Value = secureValue 
+        };
+
+        var jsonString = JsonSerializer.Serialize(container);
+        var jsonBytes = Encoding.UTF8.GetBytes(jsonString);
+        return (secureValue, Convert.ToBase64String(jsonBytes));
     }
 }

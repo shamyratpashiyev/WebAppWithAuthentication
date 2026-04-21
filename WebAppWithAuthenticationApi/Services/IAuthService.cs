@@ -8,10 +8,15 @@ public interface IAuthService
     /// <summary>
     /// Handles authentication logic.
     /// </summary>
-    Task<List<(CookieOptions cookieOptions, string tokenName, string tokenValue)>> AuthenticateAsync(LoginRequestDto request);
+    Task<List<(string tokenName, string tokenValue, CookieOptions cookieOptions)>> AuthenticateAsync(LoginRequestDto request);
 
     /// <summary>
     /// Registers new user and authenticates it right away.
     /// </summary>
-    Task<List<(CookieOptions cookieOptions, string tokenName, string tokenValue)>> RegisterAndAuthenticateAsync(SignupRequestDto request);
+    Task<List<(string tokenName, string tokenValue, CookieOptions cookieOptions)>> RegisterAndAuthenticateAsync(SignupRequestDto request);
+
+    /// <summary>
+    /// Validates refresh token and issues new access and refresh tokens. 
+    /// </summary>
+    Task<List<(string tokenName, string tokenValue, CookieOptions cookieOptions)>> RefreshAsync(RefreshTokenDto input);
 }
