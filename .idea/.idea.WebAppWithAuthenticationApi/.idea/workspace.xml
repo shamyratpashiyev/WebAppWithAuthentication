@@ -64,7 +64,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.WebAppWithAuthenticationApi: http.executor": "Debug",
+    ".NET Launch Settings Profile.WebAppWithAuthenticationApi: http.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -157,7 +157,7 @@
       <workItem from="1776574969645" duration="18082000" />
       <workItem from="1776653602847" duration="2913000" />
       <workItem from="1776691125696" duration="5293000" />
-      <workItem from="1776742993105" duration="8254000" />
+      <workItem from="1776742993105" duration="8704000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -223,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776696336278</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="In the process of connecting the login and register page to the backend">
+      <option name="closed" value="true" />
+      <created>1776763638990</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1776763638990</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +249,7 @@
     <MESSAGE value="Finished connecting the UI to the backend" />
     <MESSAGE value="Configured JwtAuthentication in the backend" />
     <MESSAGE value="In the process of connecting the login page to the backend" />
+    <MESSAGE value="In the process of connecting the login and register page to the backend" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">

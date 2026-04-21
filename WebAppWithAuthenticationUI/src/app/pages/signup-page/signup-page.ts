@@ -43,7 +43,8 @@ export class SignupPage {
     position: new FormControl(''),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    confirmPassword: new FormControl('', [Validators.required])
+    confirmPassword: new FormControl('', [Validators.required]),
+    rememberMe: new FormControl(false, [Validators.required])
   }, { validators: this.passwordMatchValidator });
 
   onSubmit() {

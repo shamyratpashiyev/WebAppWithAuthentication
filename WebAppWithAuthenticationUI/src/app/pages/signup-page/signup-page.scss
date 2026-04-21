@@ -76,3 +76,27 @@
   font-size: 0.8rem;
   margin-top: 0.25rem;
 }
+
+.form-group-checkbox {
+  margin: 1rem 0;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #555;
+  user-select: none;
+}
+
+.checkbox-container input {
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  line-height: 1;
+}
