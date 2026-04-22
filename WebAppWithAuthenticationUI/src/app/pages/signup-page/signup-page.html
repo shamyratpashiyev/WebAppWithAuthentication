@@ -19,9 +19,22 @@
         <input id="position" formControlName="position" type="text" class="form-control" placeholder="Backend Developer">
       </div>
 
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input id="email" formControlName="email" type="email" class="form-control" placeholder="email@example.com">
+      <div class="mb-3">
+        <label for="email" class="form-label d-block text-start">Email Address</label>
+        <div class="input-group">
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            class="form-control">
+
+          <button
+            type="button"
+            class="btn btn-outline-secondary resend-btn"
+            title="Send confirmation link">
+            <i class="bi bi-envelope-fill"></i>
+          </button>
+        </div>
       </div>
 
       <div class="form-group">

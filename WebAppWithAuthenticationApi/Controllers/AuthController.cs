@@ -74,4 +74,23 @@ public class AuthController : ControllerBase
         }
         return Unauthorized("Invalid refresh token.");
     }
+    
+    [HttpPost("send-confirmation-link/{email}")]
+    public async Task<IActionResult> SendConfirmationLinkAsync(string email)
+    {
+        try
+        {
+            await _authService.SendConfirmationLinkAsync(email);
+        }
+        catch (ArgumentException _)
+        {
+            return NotFound("User not found");
+        }
+        catch
+        {
+            return StatusCode(500, "Internal server error");
+        }
+
+        return Ok("Confirmation link sent successfully.");
+    }
 }

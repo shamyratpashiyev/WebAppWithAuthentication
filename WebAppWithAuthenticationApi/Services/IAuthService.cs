@@ -19,4 +19,9 @@ public interface IAuthService
     /// Validates refresh token and issues new access and refresh tokens. 
     /// </summary>
     Task<List<(string tokenName, string tokenValue, CookieOptions cookieOptions)>> RefreshAsync(RefreshTokenDto input);
+
+    /// <summary>
+    /// Sends email confirmation link.
+    /// </summary>
+    Task SendConfirmationLinkAsync(string email);
 }

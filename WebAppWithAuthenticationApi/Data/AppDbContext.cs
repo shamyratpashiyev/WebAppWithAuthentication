@@ -53,6 +53,7 @@ public class AppDbContext : IdentityDbContext<User, IdentityRole<int>, int>
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<User>().HasKey(x => x.Id);
+        modelBuilder.Entity<User>().Property(x => x.Email).IsRequired();
         modelBuilder.Entity<User>().Property(x => x.Name).IsRequired();
         modelBuilder.Entity<User>().Property(x => x.Surname).IsRequired();
         modelBuilder.Entity<User>().Property(x => x.Position).IsRequired(false);

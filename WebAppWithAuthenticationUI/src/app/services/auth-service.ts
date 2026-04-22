@@ -34,4 +34,11 @@ export class AuthService extends BaseHttpService {
         ...this.defaultOptions,
       })
   }
+
+  sendConfirmationLink = (email: string): Observable<void> => {
+    return this.httpClient.request<void>('POST', `${this.serviceBaseUrl}/send-confirmation-link/${email}`,
+      {
+        ...this.defaultOptions,
+      })
+  }
 }

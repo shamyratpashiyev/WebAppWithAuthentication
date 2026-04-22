@@ -15,13 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3528a6ab-6d4c-4bca-b31f-9694ed79f471" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Dtos/EmailDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/EmailService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/IEmailService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebAppWithAuthenticationApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebAppWithAuthenticationApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAppWithAuthenticationApi/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +171,9 @@
       <workItem from="1776691125696" duration="5293000" />
       <workItem from="1776742993105" duration="21019000" />
       <workItem from="1776826902961" duration="1760000" />
-      <workItem from="1776828677770" duration="1017000" />
+      <workItem from="1776828677770" duration="1996000" />
+      <workItem from="1776862626907" duration="5000" />
+      <workItem from="1776862688882" duration="3492000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -283,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776828792259</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fixed a minor mistake">
+      <option name="closed" value="true" />
+      <created>1776829771000</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1776829771000</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,110 +327,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
-          <line>60</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RefreshAsync'">
-            <startOffsets>
-              <option value="1712" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1764" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
-          <line>62</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RefreshAsync'">
-            <startOffsets>
-              <option value="1782" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1822" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
-          <line>64</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RefreshAsync'">
-            <startOffsets>
-              <option value="1845" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1902" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
-          <line>65</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RefreshAsync'">
-            <startOffsets>
-              <option value="1915" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1991" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
-          <line>66</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RefreshAsync'">
-            <startOffsets>
-              <option value="2004" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2060" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
-          <line>72</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RefreshAsync'">
-            <startOffsets>
-              <option value="2243" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2291" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
-          <line>74</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RefreshAsync'">
-            <startOffsets>
-              <option value="2310" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2356" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
-          <line>69</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RefreshAsync'">
-            <startOffsets>
-              <option value="2131" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2215" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

@@ -8,9 +8,22 @@
           <p class="subtitle-text mb-1">Start your journey</p>
           <h2 class="header-text">Sign In to The App</h2>
           <form [formGroup]="loginForm" (submit)="onSubmit($event)">
-            <div class="mb-3 input-group">
-              <input type="email" formControlName="email" class="form-control">
-              <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+            <div class="mb-3">
+              <label for="email" class="form-label d-block text-start">Email Address</label>
+              <div class="input-group">
+                <input
+                  id="email"
+                  type="email"
+                  formControlName="email"
+                  class="form-control">
+
+                <button
+                  type="button"
+                  class="btn btn-light border input-group-btn"
+                  title="Send confirmation link">
+                  <i class="bi bi-envelope-fill"></i>
+                </button>
+              </div>
             </div>
 
             <div class="mb-3 input-group">

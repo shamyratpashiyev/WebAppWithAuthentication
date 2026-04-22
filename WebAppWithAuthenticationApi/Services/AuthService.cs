@@ -18,19 +18,22 @@ public class AuthService : IAuthService
     private readonly IJwtService _jwtService;
     private readonly IConfiguration _configuration;
     private readonly AppDbContext _appDbContext;
+    private readonly IEmailService _emailService;
 
     public AuthService(
         UserManager<User> userManager,
         IHostEnvironment hostEnvironment,
         IJwtService jwtService,
         IConfiguration configuration,
-        AppDbContext appDbContext)
+        AppDbContext appDbContext,
+        IEmailService emailService)
     {
         _userManager = userManager;
         _hostEnvironment = hostEnvironment;
         _jwtService = jwtService;
         _configuration = configuration;
         _appDbContext = appDbContext;
+        _emailService = emailService;
     }
     
     public async Task<List<(string tokenName, string tokenValue, CookieOptions cookieOptions)>> AuthenticateAsync(LoginRequestDto request)
@@ -88,6 +91,24 @@ public class AuthService : IAuthService
             };
         }
         throw new Exception("Error refreshing the token");
+    }
+
+    public async Task SendConfirmationLinkAsync(string email)
+    {
+        var user = await _userManager.FindByEmailAsync(email);
+        if (user != null)
+        {
+            var uiBaseUrl = _configuration.GetSection("Ui").GetValue<string>("BaseUrl");
+            var ui = _configuration.GetSection("Ui");
+
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var confirmationLink = $"{uiBaseUrl}/{ui["EmailConfirmationPath"]}?{ui["UserId"]}={user.Id}&{ui["Token"]}={Uri.EscapeDataString(token)}";
+
+            await _emailService.SendAsync(user.Email, "Confirm your email",
+                $"Please confirm your account by <a href='{confirmationLink}'>clicking here</a>.");
+        }
+
+        throw new ArgumentException("User not found");
     }
 
     private (string tokenName, string tokenValue, CookieOptions cookieOptions) GenerateAccessCookie(User user)
