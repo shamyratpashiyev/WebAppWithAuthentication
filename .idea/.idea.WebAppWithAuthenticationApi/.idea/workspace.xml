@@ -14,7 +14,15 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3528a6ab-6d4c-4bca-b31f-9694ed79f471" name="Changes" comment="" />
+    <list default="true" id="3528a6ab-6d4c-4bca-b31f-9694ed79f471" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Dtos/EmailDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/EmailService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/IEmailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebAppWithAuthenticationApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebAppWithAuthenticationApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAppWithAuthenticationApi/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/appsettings.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,6 +177,7 @@
       <workItem from="1776691125696" duration="5293000" />
       <workItem from="1776742993105" duration="21019000" />
       <workItem from="1776826902961" duration="1760000" />
+      <workItem from="1776828677770" duration="1017000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -258,7 +267,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776769967052</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added EmailService">
+      <option name="closed" value="true" />
+      <created>1776828727206</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1776828727207</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fixed a minor mistake">
+      <option name="closed" value="true" />
+      <created>1776828792259</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1776828792259</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +304,8 @@
     <MESSAGE value="In the process of connecting the login and register page to the backend" />
     <MESSAGE value="Finished connecting the login/signup pages to the backend" />
     <MESSAGE value="Added RefreshToken logic" />
+    <MESSAGE value="Added EmailService" />
+    <MESSAGE value="Fixed a minor mistake" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">

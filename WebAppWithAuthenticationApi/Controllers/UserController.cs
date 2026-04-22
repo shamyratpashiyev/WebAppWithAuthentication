@@ -6,12 +6,12 @@ using WebAppWithAuthenticationApi.Data;
 using WebAppWithAuthenticationApi.Dtos;
 using WebAppWithAuthenticationApi.Enums;
 using WebAppWithAuthenticationApi.Models;
-using WebAppWithAuthenticationApi.Services;
 
 namespace WebAppWithAuthenticationApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class UserController : ControllerBase
 {
     private readonly UserManager<User> _userManager;
@@ -26,7 +26,6 @@ public class UserController : ControllerBase
         _dbContext = dbContext;
     }
 
-    [Authorize]
     [HttpGet]
     public async Task<List<UserDto>> GetList(string? filter)
     {
