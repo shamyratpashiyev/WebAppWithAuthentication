@@ -3,6 +3,7 @@ import {BaseHttpService} from './base-http-service';
 import {Observable} from 'rxjs';
 import {LoginRequestDto, SignupRequestDto} from '../models/models';
 import {environment} from '../../environments/environment';
+import {HttpParams} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -43,10 +44,14 @@ export class AuthService extends BaseHttpService {
   }
 
   confirmEmail = (userId: string, token: string): Observable<void> => {
+    const params = new HttpParams()
+      .set(environment.emailConfirmation.userIdQueryString, userId)
+      .set(environment.emailConfirmation.tokenQueryString, token);
     return this.httpClient.request<void>('POST',
-      `${this.serviceBaseUrl}/confirm-email?${environment.emailConfirmation.userIdQueryString}=${userId}&${environment.emailConfirmation.tokenQueryString}=${token}`,
+      `${this.serviceBaseUrl}/confirm-email`,
       {
         ...this.defaultOptions,
+        params
       })
   }
 }

@@ -98,7 +98,7 @@ public class AuthController : ControllerBase
         return Ok(new { message = "Confirmation link sent successfully." });
     }
     
-    [HttpGet("confirm-email")]
+    [HttpPost("confirm-email")]
     public async Task<IActionResult> ConfirmEmail()
     {
         var emailConfirmation = _configuration.GetSection("Ui").GetSection("EmailConfirmation");
@@ -109,7 +109,7 @@ public class AuthController : ControllerBase
             var successfullyConfirmed = await _authService.ConfirmEmail(userId, token);
             if (successfullyConfirmed)
             {
-                return Ok("Email confirmed successfully!");
+                return Ok(new { message = "Email confirmed successfully!" });
             }
         }
         catch

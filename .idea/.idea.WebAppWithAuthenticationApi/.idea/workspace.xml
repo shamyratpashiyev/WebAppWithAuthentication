@@ -72,35 +72,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.WebAppWithAuthenticationApi: http.executor": "Debug",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationUI/WebAppWithAuthenticationUI/package.json",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.ng serve.executor": "Run",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "ts.external.directory.path": "/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationUI/node_modules/typescript/lib"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.WebAppWithAuthenticationApi: http.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationUI/WebAppWithAuthenticationUI/package.json&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.ng serve.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationUI/node_modules/typescript/lib&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.WebAppWithAuthenticationApi: http">
     <configuration name="WebAppWithAuthenticationApi: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi.csproj" />
@@ -172,7 +172,8 @@
       <workItem from="1776828677770" duration="1996000" />
       <workItem from="1776862626907" duration="5000" />
       <workItem from="1776862688882" duration="3492000" />
-      <workItem from="1776912893931" duration="4767000" />
+      <workItem from="1776912893931" duration="4815000" />
+      <workItem from="1776944413396" duration="901000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -286,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776829771000</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="In the process of adding the emailConfirmation feature">
+      <option name="closed" value="true" />
+      <created>1776917681755</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1776917681755</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,6 +318,7 @@
     <MESSAGE value="Added RefreshToken logic" />
     <MESSAGE value="Added EmailService" />
     <MESSAGE value="Fixed a minor mistake" />
+    <MESSAGE value="In the process of adding the emailConfirmation feature" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
@@ -327,147 +337,95 @@
           <option name="timeStamp" value="3" />
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>98</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'SendConfirmationLinkAsync'">
+          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
+          <line>108</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'ConfirmEmail'">
             <startOffsets>
-              <option value="3755" />
+              <option value="3408" />
             </startOffsets>
             <endOffsets>
-              <option value="3809" />
+              <option value="3483" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>99</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'SendConfirmationLinkAsync'">
-            <startOffsets>
-              <option value="3818" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3835" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>112</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'SendConfirmationLinkAsync'">
-            <startOffsets>
-              <option value="4517" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4563" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
-          <line>86</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'SendConfirmationLinkAsync'">
+          <line>109</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'ConfirmEmail'">
             <startOffsets>
-              <option value="2709" />
+              <option value="3496" />
             </startOffsets>
             <endOffsets>
-              <option value="2761" />
+              <option value="3522" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="13" />
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
-          <line>97</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'SendConfirmationLinkAsync'">
+          <line>119</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'ConfirmEmail'">
             <startOffsets>
-              <option value="2979" />
+              <option value="3743" />
             </startOffsets>
             <endOffsets>
-              <option value="3047" />
+              <option value="3789" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
-          <line>94</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'SendConfirmationLinkAsync'">
-            <startOffsets>
-              <option value="2911" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2959" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
-          <line>90</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'SendConfirmationLinkAsync'">
-            <startOffsets>
-              <option value="2830" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2864" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>101</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'SendConfirmationLinkAsync'">
+          <line>117</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'ConfirmEmail'">
             <startOffsets>
-              <option value="3858" />
+              <option value="4655" />
             </startOffsets>
             <endOffsets>
-              <option value="3934" />
+              <option value="4707" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>102</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'SendConfirmationLinkAsync'">
+          <line>118</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'ConfirmEmail'">
             <startOffsets>
-              <option value="3947" />
+              <option value="4716" />
             </startOffsets>
             <endOffsets>
-              <option value="4035" />
+              <option value="4733" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="18" />
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>104</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'SendConfirmationLinkAsync'">
+          <line>120</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'ConfirmEmail'">
             <startOffsets>
-              <option value="4049" />
+              <option value="4756" />
             </startOffsets>
             <endOffsets>
-              <option value="4122" />
+              <option value="4819" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="19" />
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>107</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'SendConfirmationLinkAsync'">
+          <line>121</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'ConfirmEmail'">
             <startOffsets>
-              <option value="4314" />
+              <option value="4832" />
             </startOffsets>
             <endOffsets>
-              <option value="4477" />
+              <option value="4856" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="20" />
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
