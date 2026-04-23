@@ -56,4 +56,18 @@ export class LoginPage {
         });
     }
   }
+
+  onPasswordResetLinkSend(){
+    if (this.loginForm.value.email){
+      this.authService.sendPasswordResetLink(this.loginForm.value.email)
+        .subscribe({
+          complete: () => {
+            this.notificationService.throwSuccess('Success','Password reset link sent successfully, please check your email.')
+          },
+          error: (err) => {
+            this.notificationService.throwError('Error','Error sending password reset link. Please make sure you are registered.')
+          }
+        });
+    }
+  }
 }

@@ -29,4 +29,14 @@ public interface IAuthService
     /// Confirms user email by provided credentials.
     /// </summary>
     Task<bool> ConfirmEmail(string userId, string token);
+
+    /// <summary>
+    /// Sends a unique password reset link to provided email address.
+    /// </summary>
+    Task SendPasswordResetLinkAsync(string email);
+
+    /// <summary>
+    /// Reset a password of a user via unique password reset link.
+    /// </summary>
+    Task<bool> PasswordReset(string userId, string token, string newPassword);
 }

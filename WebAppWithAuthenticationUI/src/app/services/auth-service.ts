@@ -54,4 +54,24 @@ export class AuthService extends BaseHttpService {
         params
       })
   }
+
+  sendPasswordResetLink = (email: string): Observable<void> => {
+    return this.httpClient.request<void>('POST', `${this.serviceBaseUrl}/send-password-reset-link/${email}`,
+      {
+        ...this.defaultOptions,
+      })
+  }
+
+  passwordReset = (userId: string, token: string, newPassword: string): Observable<void> => {
+    const params = new HttpParams()
+      .set(environment.passwordReset.userIdQueryString, userId)
+      .set(environment.passwordReset.tokenQueryString, token);
+    return this.httpClient.request<void>('POST',
+      `${this.serviceBaseUrl}/password-reset`,
+      {
+        ...this.defaultOptions,
+        body: { newPassword },
+        params
+      })
+  }
 }

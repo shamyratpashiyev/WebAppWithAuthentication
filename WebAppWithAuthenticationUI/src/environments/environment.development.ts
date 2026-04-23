@@ -5,5 +5,9 @@ export const environment = {
   emailConfirmation: {
     userIdQueryString: 'userId',
     tokenQueryString: 'token',
+  },
+  passwordReset: {
+    userIdQueryString: 'userId',
+    tokenQueryString: 'token',
   }
 };

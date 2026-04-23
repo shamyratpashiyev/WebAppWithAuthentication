@@ -49,7 +49,14 @@
 
             <div class="d-flex justify-content-between text-muted fs-7 mt-5">
               <span>Don't have an account? <a [routerLink]="['/signup']" class="link-primary text-decoration-none">Sign up</a></span>
-              <a href="#" class="link-primary text-decoration-none">Forgot password?</a>
+
+              <button
+                type="button"
+                class="btn btn-link link-primary text-decoration-none p-0 border-0 fs-7"
+                style="vertical-align: baseline;"
+                (click)="onPasswordResetLinkSend()">
+                Forgot password?
+              </button>
             </div>
           </form>
         </div>

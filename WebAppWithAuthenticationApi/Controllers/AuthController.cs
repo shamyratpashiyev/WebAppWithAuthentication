@@ -119,4 +119,45 @@ public class AuthController : ControllerBase
 
         return BadRequest("Invalid token or user ID");
     }
+    
+    [HttpPost("send-password-reset-link/{email}")]
+    public async Task<IActionResult> SendPasswordResetLinkAsync(string email)
+    {
+        try
+        {
+            await _authService.SendPasswordResetLinkAsync(email);
+        }
+        catch (ArgumentException _)
+        {
+            return NotFound("User not found");
+        }
+        catch
+        {
+            return StatusCode(500, "Internal server error");
+        }
+
+        return Ok(new { message = "Password reset link sent successfully." });
+    }
+    
+    [HttpPost("password-reset")]
+    public async Task<IActionResult> PasswordReset([FromBody] PasswordResetRequestDto input)
+    {
+        var passwordReset = _configuration.GetSection("Ui").GetSection("PasswordReset");
+        var userId = Request.Query[passwordReset["UserId"]];
+        var token = Request.Query[passwordReset["Token"]];
+        try
+        {
+            var successfullyConfirmed = await _authService.PasswordReset(userId, token, input.NewPassword);
+            if (successfullyConfirmed)
+            {
+                return Ok(new { message = "Password reset successfully!" });
+            }
+        }
+        catch
+        {
+            return StatusCode(500, "Internal server error");
+        }
+
+        return BadRequest("Invalid token or user ID");
+    }
 }

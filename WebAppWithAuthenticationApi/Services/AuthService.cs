@@ -112,6 +112,26 @@ public class AuthService : IAuthService
 
         throw new ArgumentException("User not found");
     }
+    
+    public async Task SendPasswordResetLinkAsync(string email)
+    {
+        var user = await _userManager.FindByEmailAsync(email);
+        if (user != null)
+        {
+            var uiBaseUrl = _configuration.GetSection("Ui").GetValue<string>("BaseUrl");
+            var passwordReset = _configuration.GetSection("Ui").GetSection("PasswordReset");
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var resetLink = $"{uiBaseUrl}/{passwordReset["Path"]}?{passwordReset["Token"]}={Uri.EscapeDataString(token)}&{passwordReset["UserId"]}={user.Id}";
+
+            await _emailService.SendAsync(user.Email, "Reset Your Password",
+                $"You requested a password reset. Please set a new password by <a href='{resetLink}'>clicking here</a>. " +
+                "If you did not request this, you can safely ignore this email.");
+            return;
+        }
+
+        throw new ArgumentException("User not found");
+    }
 
     public async Task<bool> ConfirmEmail(string userId, string token)
     {
@@ -119,6 +139,17 @@ public class AuthService : IAuthService
         if (user != null)
         {
             var result = await _userManager.ConfirmEmailAsync(user, token);
+            return result.Succeeded;
+        }
+        return false;
+    }
+    
+    public async Task<bool> PasswordReset(string userId, string token, string newPassword)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user != null)
+        {
+            var result = await _userManager.ResetPasswordAsync(user, token, newPassword);;
             return result.Succeeded;
         }
         return false;
