@@ -16,7 +16,7 @@ export const refreshTokenInterceptor: HttpInterceptorFn = (req, next) => {
             return next(req.clone({withCredentials: true}));
           }),
           catchError((refreshErr) => {
-            return throwError(() => refreshErr);
+            return throwError(() => err);
           })
         );
       }

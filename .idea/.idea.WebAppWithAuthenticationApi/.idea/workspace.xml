@@ -59,9 +59,11 @@
     <setting file="gitIndexFs://67c64620:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi/Controllers/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="gitIndexFs://67c64620:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi/Controllers/UserController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="gitIndexFs://67c64620:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi/Dtos/EmailDto.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="gitIndexFs://67c64620:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi/Dtos/PasswordResetRequestDto.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="gitIndexFs://67c64620:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="gitIndexFs://67c64620:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi/Services/AuthService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="gitIndexFs://67c64620:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi/Services/EmailService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="gitIndexFs://67c64620:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi/Services/IAuthService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="gitIndexFs://67c64620:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi:/home/shamyrat/RiderProjects/WebAppWithAuthenticationApi/WebAppWithAuthenticationApi/Services/IEmailService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -75,7 +77,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.WebAppWithAuthenticationApi: http.executor": "Debug",
+    ".NET Launch Settings Profile.WebAppWithAuthenticationApi: http.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -174,7 +176,7 @@
       <workItem from="1776862626907" duration="5000" />
       <workItem from="1776862688882" duration="3492000" />
       <workItem from="1776912893931" duration="4815000" />
-      <workItem from="1776944413396" duration="6616000" />
+      <workItem from="1776944413396" duration="11459000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -304,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776945481540</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added PasswordReset feature">
+      <option name="closed" value="true" />
+      <created>1776952646541</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1776952646541</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,6 +339,7 @@
     <MESSAGE value="Fixed a minor mistake" />
     <MESSAGE value="In the process of adding the emailConfirmation feature" />
     <MESSAGE value="Finished the emailConfirmation feature" />
+    <MESSAGE value="Added PasswordReset feature" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
@@ -346,58 +357,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>148</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'PasswordReset'">
-            <startOffsets>
-              <option value="5979" />
-            </startOffsets>
-            <endOffsets>
-              <option value="6031" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>151</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'PasswordReset'">
-            <startOffsets>
-              <option value="6080" />
-            </startOffsets>
-            <endOffsets>
-              <option value="6157" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>154</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'PasswordReset'">
-            <startOffsets>
-              <option value="6214" />
-            </startOffsets>
-            <endOffsets>
-              <option value="6227" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs</url>
-          <line>152</line>
-          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Services/AuthService.cs" containingFunctionPresentation="Method 'PasswordReset'">
-            <startOffsets>
-              <option value="6171" />
-            </startOffsets>
-            <endOffsets>
-              <option value="6195" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

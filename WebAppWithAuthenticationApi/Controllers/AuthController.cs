@@ -37,7 +37,7 @@ public class AuthController : ControllerBase
         }
         catch
         {
-            return Unauthorized("Invalid username or password.");
+            return Unauthorized(new { message = "Invalid username or password." });
         }
     }
     
@@ -55,7 +55,7 @@ public class AuthController : ControllerBase
         }
         catch
         {
-            return StatusCode(500, "Internal server error");
+            return StatusCode(500, new { message = "Internal server error" });
         }
     }
 
@@ -76,7 +76,7 @@ public class AuthController : ControllerBase
 
             return Ok(new { message = "Login successful" });
         }
-        return Unauthorized("Invalid refresh token.");
+        return Unauthorized(new { message = "Invalid refresh token." });
     }
     
     [HttpPost("send-confirmation-link/{email}")]
@@ -88,11 +88,11 @@ public class AuthController : ControllerBase
         }
         catch (ArgumentException _)
         {
-            return NotFound("User not found");
+            return NotFound( new { message = "User not found" });
         }
         catch
         {
-            return StatusCode(500, "Internal server error");
+            return StatusCode(500, new { message = "Internal server error" });
         }
 
         return Ok(new { message = "Confirmation link sent successfully." });
@@ -114,10 +114,10 @@ public class AuthController : ControllerBase
         }
         catch
         {
-            return StatusCode(500, "Internal server error");
+            return StatusCode(500, new { message = "Internal server error" });
         }
 
-        return BadRequest("Invalid token or user ID");
+        return BadRequest(new { message = "Invalid token or user ID" });
     }
     
     [HttpPost("send-password-reset-link/{email}")]
@@ -129,11 +129,11 @@ public class AuthController : ControllerBase
         }
         catch (ArgumentException _)
         {
-            return NotFound("User not found");
+            return NotFound(new { message = "User not found" });
         }
         catch
         {
-            return StatusCode(500, "Internal server error");
+            return StatusCode(500, new { message = "Internal server error" });
         }
 
         return Ok(new { message = "Password reset link sent successfully." });
@@ -155,9 +155,9 @@ public class AuthController : ControllerBase
         }
         catch
         {
-            return StatusCode(500, "Internal server error");
+            return StatusCode(500, new { message = "Internal server error" });
         }
 
-        return BadRequest("Invalid token or user ID");
+        return BadRequest( new { message = "Invalid token or user ID" });
     }
 }

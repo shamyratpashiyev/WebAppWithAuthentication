@@ -53,7 +53,7 @@ public class UserController : ControllerBase
         }
         catch
         {
-            return StatusCode(500, "Internal server error");
+            return StatusCode(500, new { message = "Internal server error"} );
         }
         return Ok();
     }
@@ -70,7 +70,7 @@ public class UserController : ControllerBase
         }
         catch
         {
-            return StatusCode(500, "Internal server error");
+            return StatusCode(500, new { message = "Internal server error"} );
         }
         return Ok();
     }
@@ -85,7 +85,7 @@ public class UserController : ControllerBase
         }
         catch
         {
-            return StatusCode(500, "Internal server error");
+            return StatusCode(500, new { message = "Internal server error"} );
         }
         return Ok();
     }
@@ -100,7 +100,7 @@ public class UserController : ControllerBase
         }
         catch
         {
-            return StatusCode(500, "Internal server error");
+            return StatusCode(500, new { message = "Internal server error"} );
         }
         return Ok();
     }
