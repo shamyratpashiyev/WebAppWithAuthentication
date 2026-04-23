@@ -18,6 +18,7 @@ builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
         options.Password.RequireUppercase = false;
         options.Password.RequireLowercase = false;
         options.Password.RequiredUniqueChars = 0;
+        options.User.RequireUniqueEmail = true;
     })
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();

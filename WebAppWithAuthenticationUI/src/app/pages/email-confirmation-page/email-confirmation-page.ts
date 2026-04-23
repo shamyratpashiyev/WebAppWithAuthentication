@@ -15,12 +15,15 @@ export class EmailConfirmationPage implements OnInit {
   verificationStatus = signal<'loading' | 'success' | 'error'>('loading');
 
   constructor(private activatedRoute: ActivatedRoute,
-              private auth: AuthService) {
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
     const userId = this.activatedRoute.snapshot.queryParams[environment.emailConfirmation.userIdQueryString];
     const token = this.activatedRoute.snapshot.queryParams[environment.emailConfirmation.tokenQueryString];
-    console.log('Token from URL:', token);
+    this.authService.confirmEmail(userId, token).subscribe({
+      complete: () => this.verificationStatus.set('success'),
+      error: (e) => this.verificationStatus.set('error')
+    })
   }
 }

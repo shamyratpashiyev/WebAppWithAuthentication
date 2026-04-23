@@ -41,4 +41,12 @@ export class AuthService extends BaseHttpService {
         ...this.defaultOptions,
       })
   }
+
+  confirmEmail = (userId: string, token: string): Observable<void> => {
+    return this.httpClient.request<void>('POST',
+      `${this.serviceBaseUrl}/confirm-email?${environment.emailConfirmation.userIdQueryString}=${userId}&${environment.emailConfirmation.tokenQueryString}=${token}`,
+      {
+        ...this.defaultOptions,
+      })
+  }
 }

@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +12,14 @@ namespace WebAppWithAuthenticationApi.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly IAuthService _authService;
+    private readonly IConfiguration _configuration;
 
     public AuthController(
-        IAuthService authService)
+        IAuthService authService,
+        IConfiguration configuration)
     {
         _authService = authService;
+        _configuration = configuration;
     }
 
     [HttpPost("login")]
@@ -91,6 +95,28 @@ public class AuthController : ControllerBase
             return StatusCode(500, "Internal server error");
         }
 
-        return Ok("Confirmation link sent successfully.");
+        return Ok(new { message = "Confirmation link sent successfully." });
+    }
+    
+    [HttpGet("confirm-email")]
+    public async Task<IActionResult> ConfirmEmail()
+    {
+        var emailConfirmation = _configuration.GetSection("Ui").GetSection("EmailConfirmation");
+        var userId = Request.Query[emailConfirmation["UserId"]];
+        var token = Request.Query[emailConfirmation["Token"]];
+        try
+        {
+            var successfullyConfirmed = await _authService.ConfirmEmail(userId, token);
+            if (successfullyConfirmed)
+            {
+                return Ok("Email confirmed successfully!");
+            }
+        }
+        catch
+        {
+            return StatusCode(500, "Internal server error");
+        }
+
+        return BadRequest("Invalid token or user ID");
     }
 }

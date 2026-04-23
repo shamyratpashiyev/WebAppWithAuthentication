@@ -70,6 +70,7 @@ public class AuthService : IAuthService
         if (result.Succeeded)
         {
             var loginRequest = new LoginRequestDto(){ Email = request.Email, Password = request.Password, RememberMe = request.RememberMe};
+            await SendConfirmationLinkAsync(user.Email);
             return await AuthenticateAsync(loginRequest);
         }
 
@@ -99,16 +100,28 @@ public class AuthService : IAuthService
         if (user != null)
         {
             var uiBaseUrl = _configuration.GetSection("Ui").GetValue<string>("BaseUrl");
-            var ui = _configuration.GetSection("Ui");
+            var emailConfirmation = _configuration.GetSection("Ui").GetSection("EmailConfirmation");
 
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var confirmationLink = $"{uiBaseUrl}/{ui["EmailConfirmationPath"]}?{ui["UserId"]}={user.Id}&{ui["Token"]}={Uri.EscapeDataString(token)}";
+            var confirmationLink = $"{uiBaseUrl}/{emailConfirmation["Path"]}?{emailConfirmation["Token"]}={Uri.EscapeDataString(token)}&{emailConfirmation["UserId"]}={user.Id}";
 
             await _emailService.SendAsync(user.Email, "Confirm your email",
                 $"Please confirm your account by <a href='{confirmationLink}'>clicking here</a>.");
+            return;
         }
 
         throw new ArgumentException("User not found");
+    }
+
+    public async Task<bool> ConfirmEmail(string userId, string token)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user != null)
+        {
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            return result.Succeeded;
+        }
+        return false;
     }
 
     private (string tokenName, string tokenValue, CookieOptions cookieOptions) GenerateAccessCookie(User user)

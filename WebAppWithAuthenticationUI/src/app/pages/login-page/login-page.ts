@@ -3,6 +3,7 @@ import {AuthService} from '../../services/auth-service';
 import {LoginRequestDto} from '../../models/models';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
+import {NotificationService} from '../../services/notification-service';
 
 @Component({
   selector: 'app-login-page',
@@ -24,7 +25,8 @@ export class LoginPage {
 
   constructor(
     private authService: AuthService,
-    private router: Router) {
+    private router: Router,
+    private notificationService: NotificationService) {
   }
 
   togglePasswordHidden() {
@@ -39,5 +41,19 @@ export class LoginPage {
           await this.router.navigateByUrl('');
         }
       });
+  }
+
+  onConfirmationLinkSend(){
+    if (this.loginForm.value.email){
+      this.authService.sendConfirmationLink(this.loginForm.value.email)
+        .subscribe({
+          complete: () => {
+            this.notificationService.throwSuccess('Success','Confirmation link sent successfully, please check your email.')
+          },
+          error: (err) => {
+            this.notificationService.throwError('Error','Error sending confirmation link. Please make sure you are registered.')
+          }
+        });
+    }
   }
 }

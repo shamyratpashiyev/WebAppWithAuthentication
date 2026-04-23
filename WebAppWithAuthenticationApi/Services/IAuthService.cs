@@ -24,4 +24,9 @@ public interface IAuthService
     /// Sends email confirmation link.
     /// </summary>
     Task SendConfirmationLinkAsync(string email);
+
+    /// <summary>
+    /// Confirms user email by provided credentials.
+    /// </summary>
+    Task<bool> ConfirmEmail(string userId, string token);
 }

@@ -1,11 +1,12 @@
 import {HttpInterceptorFn} from '@angular/common/http';
 import {catchError, throwError} from 'rxjs';
-import Swal from 'sweetalert2';
 import {inject} from '@angular/core';
 import {Router} from '@angular/router';
+import {NotificationService} from '../services/notification-service';
 
 export const errorHandlerInterceptor: HttpInterceptorFn = (req, next) => {
   const router = inject(Router);
+  const notificationService = inject(NotificationService);
 
   return next(req).pipe(
     catchError((err, caught) => {
@@ -13,12 +14,7 @@ export const errorHandlerInterceptor: HttpInterceptorFn = (req, next) => {
         router.navigateByUrl('/login').then();
       }
       else {
-        Swal.fire({
-          title: 'Http Request Error',
-          text: err.error?.message || err.message || 'Server Error',
-          icon: 'error',
-          confirmButtonColor: '#d33' // You can match your app's theme here
-        }).then();
+        notificationService.throwError('Http Request Error', err.error?.message || err.message || 'Server Error');
       }
       return throwError(() => err);
     })

@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import {AuthService} from '../../services/auth-service';
 import {SignupRequestDto} from '../../models/models';
+import {NotificationService} from '../../services/notification-service';
 
 @Component({
   selector: 'app-signup-page',
@@ -24,7 +25,8 @@ import {SignupRequestDto} from '../../models/models';
 export class SignupPage {
   isPasswordHidden = signal(true);
   constructor(private authService: AuthService,
-              private router: Router) {
+              private router: Router,
+              private notificationService: NotificationService) {
   }
 
   // Custom validator to check if passwords match
@@ -52,6 +54,7 @@ export class SignupPage {
       this.authService.register(this.signupForm.value as SignupRequestDto).subscribe({
         complete: async () => {
           await this.router.navigateByUrl('');
+          this.notificationService.throwSuccess('Success', 'Successfully registered. Confirmation link has been sent, please check your email.');
         }
       });
     }
