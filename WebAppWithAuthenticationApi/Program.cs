@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using System.Text;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using WebAppWithAuthenticationApi.Data;
+using WebAppWithAuthenticationApi.Enums;
 using WebAppWithAuthenticationApi.Models;
 using WebAppWithAuthenticationApi.Services;
 
@@ -55,6 +57,29 @@ builder.Services.AddAuthentication(options =>
             {
                 context.Token = context.Request.Cookies["access_token"];
                 return Task.CompletedTask;
+            },
+            OnTokenValidated = async context =>
+            {
+                // 1. Use TryGet or null-check before parsing
+                var userIdClaim = context.Principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    
+                if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+                {
+                    context.Fail("Unauthorized: Invalid user ID in token.");
+                    return;
+                }
+
+                // 2. Resolve the DB context
+                var db = context.HttpContext.RequestServices.GetRequiredService<AppDbContext>();
+
+                var isBlocked = await db.Users
+                    .AnyAsync(x => x.Id == userId && x.Status == UserStatus.Blocked);
+
+                if (isBlocked)
+                {
+                    context.Fail("User is banned.");
+                }
+
             }
         };
         options.TokenValidationParameters = new TokenValidationParameters()

@@ -64,7 +64,7 @@ public class UserController : ControllerBase
         var selectedUsers = await _userManager.Users.Where(x => idList.Contains(x.Id)).ToListAsync();
         try
         {
-            selectedUsers.ForEach(x => x.SetStatus(UserStatus.Active));
+            selectedUsers.ForEach(x => x.SetStatus(x.EmailConfirmed ? UserStatus.Active : UserStatus.Unverified));
             _dbContext.Users.UpdateRange(selectedUsers);
             await _dbContext.SaveChangesAsync();
         }

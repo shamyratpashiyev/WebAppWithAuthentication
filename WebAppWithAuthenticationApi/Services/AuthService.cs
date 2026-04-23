@@ -139,6 +139,11 @@ public class AuthService : IAuthService
         if (user != null)
         {
             var result = await _userManager.ConfirmEmailAsync(user, token);
+            if (user.Status == UserStatus.Unverified)
+            {
+                user.SetStatus(UserStatus.Active);
+                await _userManager.UpdateAsync(user);
+            }
             return result.Succeeded;
         }
         return false;
