@@ -1,0 +1,23 @@
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Dark semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Ensures it sits on top of everything, including modals */
+  z-index: 10000;
+  /* Modern blur effect */
+  backdrop-filter: blur(4px);
+}
+
+.spinner-border {
+  /* Forces the animation to stay smooth on the GPU */
+  will-change: transform;
+  animation: spinner-border .75s linear infinite;
+}
+
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
+}

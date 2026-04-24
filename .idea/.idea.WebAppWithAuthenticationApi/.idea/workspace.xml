@@ -14,7 +14,9 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3528a6ab-6d4c-4bca-b31f-9694ed79f471" name="Changes" comment="" />
+    <list default="true" id="3528a6ab-6d4c-4bca-b31f-9694ed79f471" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebAppWithAuthenticationApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebAppWithAuthenticationApi/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +79,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.WebAppWithAuthenticationApi: http.executor": "Run",
+    ".NET Launch Settings Profile.WebAppWithAuthenticationApi: http.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -176,7 +178,8 @@
       <workItem from="1776862626907" duration="5000" />
       <workItem from="1776862688882" duration="3492000" />
       <workItem from="1776912893931" duration="4815000" />
-      <workItem from="1776944413396" duration="11459000" />
+      <workItem from="1776944413396" duration="11972000" />
+      <workItem from="1776999747278" duration="1046000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -314,7 +317,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776952646541</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added status handling logic">
+      <option name="closed" value="true" />
+      <created>1776958157738</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1776958157738</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fixed error status handling bugs">
+      <option name="closed" value="true" />
+      <created>1776958266776</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1776958266776</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,6 +359,8 @@
     <MESSAGE value="In the process of adding the emailConfirmation feature" />
     <MESSAGE value="Finished the emailConfirmation feature" />
     <MESSAGE value="Added PasswordReset feature" />
+    <MESSAGE value="Added status handling logic" />
+    <MESSAGE value="Fixed error status handling bugs" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
@@ -357,6 +378,32 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
+          <line>29</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'LoginAsync'">
+            <startOffsets>
+              <option value="803" />
+            </startOffsets>
+            <endOffsets>
+              <option value="859" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs</url>
+          <line>30</line>
+          <properties documentPath="$PROJECT_DIR$/WebAppWithAuthenticationApi/Controllers/AuthController.cs" containingFunctionPresentation="Method 'LoginAsync'">
+            <startOffsets>
+              <option value="872" />
+            </startOffsets>
+            <endOffsets>
+              <option value="899" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
