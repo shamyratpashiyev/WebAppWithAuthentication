@@ -164,11 +164,12 @@ public class AuthService : IAuthService
     {
         var token = _jwtService.GenerateJwt(user);
         var expirationTimeInSec = _configuration.GetSection("JwtSettings").GetValue<int>("ExpirationTimeInSec");
+        var cookieSettings = _configuration.GetSection("CookieSettings");
             
         var cookieOptions = new CookieOptions
         {
             HttpOnly = true,
-            Secure = !_hostEnvironment.IsDevelopment(),
+            Secure = cookieSettings.GetValue<bool>("Secure", false),
             SameSite = SameSiteMode.Strict,
             Expires = DateTime.UtcNow.AddSeconds(expirationTimeInSec)
         };
@@ -180,11 +181,12 @@ public class AuthService : IAuthService
         var token = GenerateRefreshToken(user.Id);
         var expirationTimeInDays = _configuration.GetSection("JwtSettings").GetValue<int>("RefreshExpirationTimeInDays");
         var tokenExpirationDate = DateTime.UtcNow.AddDays(expirationTimeInDays);
+        var cookieSettings = _configuration.GetSection("CookieSettings");
                 
         var tokenCookieOptions = new CookieOptions
         {
             HttpOnly = true,
-            Secure = !_hostEnvironment.IsDevelopment(),
+            Secure = cookieSettings.GetValue<bool>("Secure", false),
             SameSite = SameSiteMode.Strict,
             Expires = tokenExpirationDate
         };

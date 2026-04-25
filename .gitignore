@@ -3,3 +3,10 @@
 */node_modules/
 */.angular/
 */.idea/
+*/dist/
+*/coverage/
+*/.vscode/
+*.log
+*.tsbuildinfo
+*.env
+*.env.*
